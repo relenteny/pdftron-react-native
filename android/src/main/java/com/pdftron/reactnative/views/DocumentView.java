@@ -331,7 +331,7 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
                 mTheme = R.style.ConnexonAppTheme;
                 break;
             default:
-                mTheme = R.style.RNAppTheme
+                mTheme = R.style.RNAppTheme;
         }
     }
 
