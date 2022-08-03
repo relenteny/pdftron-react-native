@@ -114,6 +114,12 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
 
     private static final String TAG = DocumentView.class.getSimpleName();
 
+    // Start Bigham Configuration
+
+    private int mTheme = R.style.RNAppTheme;
+
+    // End Bigham Configuration
+
     private String mDocumentPath;
     private String mTabTitle;
     private boolean mIsBase64;
@@ -282,9 +288,7 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
             if (!Utils.isNullOrEmpty(mDocumentExtension)) {
                 builder2.usingFileExtension(mDocumentExtension);
             }
-            System.err.println("RNAppTheme: " + R.style.RNAppTheme);
-            System.err.println("BighamAppTheme: " + R.style.BighamAppTheme);
-            return builder2.usingTheme(R.style.BighamAppTheme).build(getContext());
+            return builder2.usingTheme(mTheme).build(getContext());
         }
         return super.getViewer();
     }
@@ -302,11 +306,34 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
             if (!Utils.isNullOrEmpty(mDocumentExtension)) {
                 mViewerBuilder.usingFileExtension(mDocumentExtension);
             }
-            System.err.println("RNAppTheme: " + R.style.RNAppTheme);
-            System.err.println("BighamAppTheme: " + R.style.BighamAppTheme);
-            mViewerBuilder.usingTheme(R.style.BighamAppTheme);
+            mViewerBuilder.usingTheme(mTheme);
         }
     }
+
+    // Start Bigham Configuration
+
+    public void setTheme(String theme) {
+        if (Utils.isNullOrEmpty(theme)) {
+            return;
+        }
+
+        switch (theme.toLowerCase()) {
+            case "aerial":
+                mTheme = R.sytle.AerialAppTheme;
+                break;
+            case "underground":
+                mTheme = R.sytle.UndergroundAppTheme;
+                break;
+            case "splicing":
+                mTheme = R.sytle.SplicingAppTheme;
+                break;
+            case "connexon":
+                mTheme = R.sytle.ConnexonAppTheme;
+                break;
+        }
+    }
+
+    // End Bigham Configuration
 
     public void setDocument(String path) {
         if (Utils.isNullOrEmpty(path)) {

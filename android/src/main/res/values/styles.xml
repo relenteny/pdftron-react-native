@@ -5,7 +5,20 @@
         <item name="highlight_presets">@array/bigham_highlight_presets</item>
     </style>
 
-    <style name="BighamAppTheme" parent="RNAppThemeBase">
+    <style name="AerialAppTheme" parent="RNAppThemeBase">
+        <item name="preset_colors_style">@style/BauPresetColorGridStyle</item>
+    </style>
+
+    <style name="UndergroundAppTheme" parent="RNAppThemeBase">
+        <item name="preset_colors_style">@style/BauPresetColorGridStyle</item>
+    </style>
+
+    <style name="SplicingAppTheme" parent="RNAppThemeBase">
+        <item name="preset_colors_style">@style/BauPresetColorGridStyle</item>
+    </style>
+
+    <style name="ConnexonAppTheme" parent="RNAppThemeBase">
+        <item name="preset_colors_style">@style/ConnexonPresetColorGridStyle</item>
     </style>
 
     <style name="RNAppThemeBase" parent="PDFTronAppTheme">
@@ -16,18 +29,42 @@
         <item name="showSearchWeb">false</item>
     </style>
 
-    <style name="BighamHighlightPresetStyleSplicer">
+    <!-- Color Presets -->
+
+    <style name="BauPresetColorGridStyle" parent="PresetColorGridViewStyle">
+        <item name="color_list">@array/bau_standard_colors</item>
+    </style>
+
+    <style name="ConnexonPresetColorGridStyle" parent="PresetColorGridViewStyle">
+        <item name="color_list">@array/connexon_standard_colors</item>
+    </style>
+
+    <!-- Highlighter -->
+
+    <style name="BighamHighlightPresetStyleCoax">
         <item name="annot_color">#FF5733</item>
     </style>
-    <style name="BighamHighlightPresetStyle2">
+    <style name="BighamHighlightPresetStyleFiber">
         <item name="annot_color">#FFFC33</item>
     </style>
 
-    <style name="BighamHighlightPresetStyle3">
+    <style name="BighamHighlightPresetStyleStrand">
         <item name="annot_color">#FF33FC</item>
     </style>
 
-    <style name="BighamHighlightPresetStyle4">
+    <style name="BighamHighlightPresetStyleSplice">
+        <item name="annot_color">#33FFDA</item>
+    </style>
+
+    <style name="BighamHighlightPresetStyleWreckOut">
+        <item name="annot_color">#33FFDA</item>
+    </style>
+
+    <style name="BighamHighlightPresetStyleUnderGround">
+        <item name="annot_color">#33FFDA</item>
+    </style>
+
+    <style name="BighamHighlightPresetStyleResag">
         <item name="annot_color">#33FFDA</item>
     </style>
 </resources>

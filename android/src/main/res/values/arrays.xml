@@ -5,11 +5,26 @@
     </string-array>
 
 
-    <array name="bigham_highlight_presets">
+    <array name="aeriel_highlight_presets">
         <item>@style/BighamHighlightPresetStyleSplicer</item>
         <item>@style/BighamHighlightPresetStyle2</item>
         <item>@style/BighamHighlightPresetStyle3</item>
         <item>@style/BighamHighlightPresetStyle4</item>
     </array>
 
+    <string-array name="bau_standard_colors">
+        <item>#fb7d9c</item>
+        <item>#fb6b17</item>
+        <item>#75d940</item>
+        <item>#0021fa</item>
+        <item>#a73c08</item>
+        <item>#fffd3c</item>
+        <item>#9f1af5</item>
+    </string-array>
+
+    <string-array name="connexon_standard_colors">
+        <item>#fb7d9c</item>
+        <item>#75d940</item>
+        <item>#0021fa</item>
+    </string-array>
 </resources>
