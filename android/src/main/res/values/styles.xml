@@ -138,7 +138,8 @@
     <style name="BighamCalloutPresetStyle1">
         <item name="annot_text_color">#000000</item>
         <item name="annot_font_size">16</item>
-        <item name="annot_color">#fffd3c</item>
+        <item name="annot_color">#000000</item>
+        <item name="annot_fill_color">#fffd3c</item>
         <item name="annot_thickness">3</item>
         <item name="annot_font">Roboto</item>
         <item name="annot_text_size_min">4</item>
