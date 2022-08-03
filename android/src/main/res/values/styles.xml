@@ -13,6 +13,7 @@
         <item name="polyline_presets">@array/aerial_polyline_presets</item>
         <item name="free_highlighter_presets">@array/aerial_free_highlighter_presets</item>
         <item name="callout_presets">@array/bigham_callout_presets</item>
+        <item name="free_text_presets">@array/bigham_free_text_presets</item>
     </style>
 
     <style name="UndergroundAppTheme" parent="RNAppThemeBase">
@@ -25,6 +26,7 @@
         <item name="polyline_presets">@array/underground_polyline_presets</item>
         <item name="free_highlighter_presets">@array/underground_free_highlighter_presets</item>
         <item name="callout_presets">@array/bigham_callout_presets</item>
+        <item name="free_text_presets">@array/bigham_free_text_presets</item>
     </style>
 
     <style name="SplicingAppTheme" parent="RNAppThemeBase">
@@ -37,6 +39,7 @@
         <item name="polyline_presets">@array/splicing_polyline_presets</item>
         <item name="free_highlighter_presets">@array/splicing_free_highlighter_presets</item>
         <item name="callout_presets">@array/bigham_callout_presets</item>
+        <item name="free_text_presets">@array/bigham_free_text_presets</item>
     </style>
 
     <style name="ConnexonAppTheme" parent="RNAppThemeBase">
@@ -49,6 +52,7 @@
         <item name="polyline_presets">@array/connexon_polyline_presets</item>
         <item name="free_highlighter_presets">@array/connexon_free_highlighter_presets</item>
         <item name="callout_presets">@array/bigham_callout_presets</item>
+        <item name="free_text_presets">@array/bigham_free_text_presets</item>
     </style>
 
     <style name="RNAppThemeBase" parent="PDFTronAppTheme">
@@ -146,4 +150,14 @@
         <item name="annot_text_size_max">72</item>
     </style>
 
+    <style name="BighamFreeTextPresetStyle1">
+        <item name="annot_text_color">#000000</item>
+        <item name="annot_font_size">16</item>
+        <item name="annot_color">#000000</item>
+        <item name="annot_fill_color">#fffd3c</item>
+        <item name="annot_thickness">3</item>
+        <item name="annot_font">Roboto</item>
+        <item name="annot_text_size_min">4</item>
+        <item name="annot_text_size_max">72</item>
+    </style>
 </resources>

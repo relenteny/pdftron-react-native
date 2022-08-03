@@ -184,6 +184,10 @@
         <item>@style/BighamCalloutPresetStyle1</item>
     </array>
 
+    <array name="bigham_free_text_presets">
+        <item>@style/BighamFreeTextPresetStyle1</item>
+    </array>
+
     <string-array name="bau_standard_colors">
         <item>#fb7d9c</item>
         <item>#fb6b17</item>
