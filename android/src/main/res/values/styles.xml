@@ -2,6 +2,7 @@
 <resources>
 
     <style name="RNAppTheme" parent="RNAppThemeBase">
+        <item name="highlight_presets">@array/bigham_highlight_presets</item>
     </style>
 
     <style name="RNAppThemeBase" parent="PDFTronAppTheme">
@@ -27,7 +28,7 @@
         <item name="annot_color">#33FFDA</item>
     </style>
 
-    <array name="highlight_presets">
+    <array name="bigham_highlight_presets">
         <item>@style/BighamHighlightPresetStyleSplicer</item>
         <item>@style/BighamHighlightPresetStyle2</item>
         <item>@style/BighamHighlightPresetStyle3</item>
