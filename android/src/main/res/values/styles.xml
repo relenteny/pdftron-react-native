@@ -21,7 +21,7 @@
 
     <style name="ConnexonAppTheme" parent="RNAppThemeBase">
         <item name="preset_colors_style">@style/ConnexonPresetColorGridStyle</item>
-        <item name="highligt_presets">@array/connexon_highlight_presets</item>
+        <item name="highlight_presets">@array/connexon_highlight_presets</item>
     </style>
 
     <style name="RNAppThemeBase" parent="PDFTronAppTheme">
