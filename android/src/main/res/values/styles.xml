@@ -12,4 +12,26 @@
         <item name="showSearchWeb">false</item>
     </style>
 
+    <style name="BighamHighlightPresetStyleSplicer">
+        <item name="annot_color">#FF5733</item>
+    </style>
+    <style name="BighamHighlightPresetStyle2">
+        <item name="annot_color">#FFFC33</item>
+    </style>
+
+    <style name="BighamHighlightPresetStyle3">
+        <item name="annot_color">#FF33FC</item>
+    </style>
+
+    <style name="BighamHighlightPresetStyle4">
+        <item name="annot_color">#33FFDA</item>
+    </style>
+
+    <array name="highlight_presets">
+        <item>@style/BighamHighlightPresetStyleSplicer</item>
+        <item>@style/BighamHighlightPresetStyle2</item>
+        <item>@style/BighamHighlightPresetStyle3</item>
+        <item>@style/BighamHighlightPresetStyle4</item>
+    </array>
+
 </resources>
