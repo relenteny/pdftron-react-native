@@ -325,11 +325,13 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
                 mTheme = R.style.UndergroundAppTheme;
                 break;
             case "splicing":
-                mTheme = R.sytle.SplicingAppTheme;
+                mTheme = R.style.SplicingAppTheme;
                 break;
             case "connexon":
-                mTheme = R.sytle.ConnexonAppTheme;
+                mTheme = R.style.ConnexonAppTheme;
                 break;
+            default:
+                mTheme = R.style.RNAppTheme
         }
     }
 
