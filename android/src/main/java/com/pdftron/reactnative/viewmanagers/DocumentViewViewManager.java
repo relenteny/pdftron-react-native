@@ -56,7 +56,7 @@ public class DocumentViewViewManager extends ViewGroupManager<DocumentView> {
     }
 
     @ReactProp(name = "theme")
-    public void setDocument(DocumentView documentView, @NonNull String theme) {
+    public void setTheme(DocumentView documentView, @NonNull String theme) {
         documentView.setTheme(theme);
     }
 
