@@ -2,7 +2,7 @@
 <resources>
 
     <style name="RNAppTheme" parent="RNAppThemeBase">
-        <item name="highlight_presets">@array/bigham_highlight_presets</item>
+        <item name="highlight_presets">@array/aerial_highlight_presets</item>
     </style>
 
     <style name="AerialAppTheme" parent="RNAppThemeBase">

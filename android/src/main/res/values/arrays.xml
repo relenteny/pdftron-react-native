@@ -6,10 +6,10 @@
 
 
     <array name="aeriel_highlight_presets">
-        <item>@style/BighamHighlightPresetStyleSplicer</item>
-        <item>@style/BighamHighlightPresetStyle2</item>
-        <item>@style/BighamHighlightPresetStyle3</item>
-        <item>@style/BighamHighlightPresetStyle4</item>
+        <item>@style/BighamHighlightPresetStyleCoax</item>
+        <item>@style/BighamHighlightPresetStyleFiber</item>
+        <item>@style/BighamHighlightPresetStyleStrand</item>
+        <item>@style/BighamHighlightPresetStyleSplice</item>
     </array>
 
     <string-array name="bau_standard_colors">
