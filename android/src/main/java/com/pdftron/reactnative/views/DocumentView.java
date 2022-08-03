@@ -282,9 +282,9 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
             if (!Utils.isNullOrEmpty(mDocumentExtension)) {
                 builder2.usingFileExtension(mDocumentExtension);
             }
-            System.out.println("RNAppTheme: " + R.style.RNAppTheme);
-            System.out.println("BighamAppTheme: " + R.style.BighamAppTheme);
-            return builder2.usingTheme(R.style.RNAppTheme).build(getContext());
+            System.err.println("RNAppTheme: " + R.style.RNAppTheme);
+            System.err.println("BighamAppTheme: " + R.style.BighamAppTheme);
+            return builder2.usingTheme(R.style.BighamAppTheme).build(getContext());
         }
         return super.getViewer();
     }
