@@ -282,7 +282,7 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
             if (!Utils.isNullOrEmpty(mDocumentExtension)) {
                 builder2.usingFileExtension(mDocumentExtension);
             }
-            return builder2.usingTheme(R.style.RNAppTheme).build(getContext());
+            return builder2.usingTheme("TestTheme").build(getContext());
         }
         return super.getViewer();
     }
@@ -300,7 +300,7 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
             if (!Utils.isNullOrEmpty(mDocumentExtension)) {
                 mViewerBuilder.usingFileExtension(mDocumentExtension);
             }
-            mViewerBuilder.usingTheme(R.style.RNAppTheme);
+            mViewerBuilder.usingTheme("TestTheme");
         }
     }
 
