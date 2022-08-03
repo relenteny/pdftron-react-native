@@ -71,6 +71,8 @@
 
     <style name="BauHighlightPresetStyleCoax">
         <item name="annot_color">#fb7d9c</item>
+        <item name="annot_opacity">65</item>
+        <item name="annot_thickness">10.0</item>
     </style>
 
     <style name="BauHighlightPresetStyleFiber">
