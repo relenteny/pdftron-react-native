@@ -5,11 +5,31 @@
     </string-array>
 
 
-    <array name="aeriel_highlight_presets">
-        <item>@style/BighamHighlightPresetStyleCoax</item>
-        <item>@style/BighamHighlightPresetStyleFiber</item>
-        <item>@style/BighamHighlightPresetStyleStrand</item>
-        <item>@style/BighamHighlightPresetStyleSplice</item>
+    <array name="aerial_highlight_presets">
+        <item>@style/BauHighlightPresetStyleCoax</item>
+        <item>@style/BauHighlightPresetStyleFiber</item>
+        <item>@style/BauHighlightPresetStyleStrand</item>
+        <item>@style/BauHighlightPresetStyleSplice</item>
+    </array>
+
+    <array name="underground_highlight_presets">
+        <item>@style/BauHighlightPresetStyleUnderGround</item>
+        <item>@style/BauHighlightPresetStyleWreckOut</item>
+        <item>@style/BauHighlightPresetStyleResag</item>
+        <item>@style/BauHighlightPresetStyleStrand</item>
+    </array>
+
+    <array name="splicing_highlight_presets">
+        <item>@style/BauHighlightPresetStyleStrand</item>
+        <item>@style/BauHighlightPresetStyleSplice</item>
+        <item>@style/BauHighlightPresetStyleCoax</item>
+        <item>@style/BauHighlightPresetStyleFiber</item>
+    </array>
+
+    <array name="connexon_highlight_presets">
+        <item>@style/ConnexonHighlightPresetStyleFiber</item>
+        <item>@style/ConnexonHighlightPresetStyleStrand</item>
+        <item>@style/ConnexonHighlightPresetStyleUnderGround</item>
     </array>
 
     <string-array name="bau_standard_colors">

@@ -319,10 +319,10 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
 
         switch (theme.toLowerCase()) {
             case "aerial":
-                mTheme = R.sytle.AerialAppTheme;
+                mTheme = R.style.AerialAppTheme;
                 break;
             case "underground":
-                mTheme = R.sytle.UndergroundAppTheme;
+                mTheme = R.style.UndergroundAppTheme;
                 break;
             case "splicing":
                 mTheme = R.sytle.SplicingAppTheme;

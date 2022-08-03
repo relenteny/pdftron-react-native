@@ -2,23 +2,26 @@
 <resources>
 
     <style name="RNAppTheme" parent="RNAppThemeBase">
-        <item name="highlight_presets">@array/aerial_highlight_presets</item>
     </style>
 
     <style name="AerialAppTheme" parent="RNAppThemeBase">
         <item name="preset_colors_style">@style/BauPresetColorGridStyle</item>
+        <item name="highlight_presets">@array/aerial_highlight_presets</item>
     </style>
 
     <style name="UndergroundAppTheme" parent="RNAppThemeBase">
         <item name="preset_colors_style">@style/BauPresetColorGridStyle</item>
+        <item name="highlight_presets">@array/underground_highlight_presets</item>
     </style>
 
     <style name="SplicingAppTheme" parent="RNAppThemeBase">
         <item name="preset_colors_style">@style/BauPresetColorGridStyle</item>
+        <item name="highlight_presets">@array/splicing_highlight_presets</item>
     </style>
 
     <style name="ConnexonAppTheme" parent="RNAppThemeBase">
         <item name="preset_colors_style">@style/ConnexonPresetColorGridStyle</item>
+        <item name="highligt_presets">@array/connexon_highlight_presets</item>
     </style>
 
     <style name="RNAppThemeBase" parent="PDFTronAppTheme">
@@ -41,30 +44,48 @@
 
     <!-- Highlighter -->
 
-    <style name="BighamHighlightPresetStyleCoax">
-        <item name="annot_color">#FF5733</item>
-    </style>
-    <style name="BighamHighlightPresetStyleFiber">
-        <item name="annot_color">#FFFC33</item>
+    <!-- BAU -->
+
+    <style name="BauHighlightPresetStyleCoax">
+        <item name="annot_color">#fb7d9c</item>
     </style>
 
-    <style name="BighamHighlightPresetStyleStrand">
-        <item name="annot_color">#FF33FC</item>
+    <style name="BauHighlightPresetStyleFiber">
+        <item name="annot_color">#fb6b17</item>
     </style>
 
-    <style name="BighamHighlightPresetStyleSplice">
-        <item name="annot_color">#33FFDA</item>
+    <style name="BauHighlightPresetStyleStrand">
+        <item name="annot_color">#75d940</item>
     </style>
 
-    <style name="BighamHighlightPresetStyleWreckOut">
-        <item name="annot_color">#33FFDA</item>
+    <style name="BauHighlightPresetStyleSplice">
+        <item name="annot_color">#0021fa</item>
     </style>
 
-    <style name="BighamHighlightPresetStyleUnderGround">
-        <item name="annot_color">#33FFDA</item>
+    <style name="BauHighlightPresetStyleWreckOut">
+        <item name="annot_color">#a73c08</item>
     </style>
 
-    <style name="BighamHighlightPresetStyleResag">
-        <item name="annot_color">#33FFDA</item>
+    <style name="BauHighlightPresetStyleUnderGround">
+        <item name="annot_color">#fffd3c</item>
     </style>
+
+    <style name="BauHighlightPresetStyleResag">
+        <item name="annot_color">#9f1af5</item>
+    </style>
+
+    <!-- Connexon -->
+
+    <style name="ConnexonHighlightPresetStyleFiber">
+        <item name="annot_color">#fb7d9c</item>
+    </style>
+
+    <style name="ConnexonHighlightPresetStyleStrand">
+        <item name="annot_color">#0021fa</item>
+    </style>
+
+    <style name="ConnexonHighlightPresetStyleUnderground">
+        <item name="annot_color">#45ff3c</item>
+    </style>
+
 </resources>
