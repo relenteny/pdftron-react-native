@@ -29,7 +29,7 @@
     <array name="connexon_highlight_presets">
         <item>@style/ConnexonHighlightPresetStyleFiber</item>
         <item>@style/ConnexonHighlightPresetStyleStrand</item>
-        <item>@style/ConnexonHighlightPresetStyleUnderGround</item>
+        <item>@style/ConnexonHighlightPresetStyleUnderground</item>
     </array>
 
     <string-array name="bau_standard_colors">
