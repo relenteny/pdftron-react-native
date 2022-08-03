@@ -5,6 +5,10 @@
         <item name="highlight_presets">@array/bigham_highlight_presets</item>
     </style>
 
+    <style name="BighamAppTheme" parent="RNAppThemeBase">
+        <item name="highlight_presets">@array/bigham_highlight_presets</item>
+    </style>
+
     <style name="RNAppThemeBase" parent="PDFTronAppTheme">
         <item name="search_toolbar">@style/RNSearchToolbarStyle</item>
     </style>

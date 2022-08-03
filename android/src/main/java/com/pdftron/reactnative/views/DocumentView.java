@@ -282,7 +282,9 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
             if (!Utils.isNullOrEmpty(mDocumentExtension)) {
                 builder2.usingFileExtension(mDocumentExtension);
             }
-            return builder2.usingTheme("TestTheme").build(getContext());
+            System.out.println("RNAppTheme: " + R.style.RNAppTheme);
+            System.out.println("BighamAppTheme: " + R.style.BighamAppTheme);
+            return builder2.usingTheme(R.style.RNAppTheme).build(getContext());
         }
         return super.getViewer();
     }
@@ -300,7 +302,7 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
             if (!Utils.isNullOrEmpty(mDocumentExtension)) {
                 mViewerBuilder.usingFileExtension(mDocumentExtension);
             }
-            mViewerBuilder.usingTheme("TestTheme");
+            mViewerBuilder.usingTheme(R.style.RNAppTheme);
         }
     }
 
