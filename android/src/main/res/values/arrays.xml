@@ -13,7 +13,7 @@
     </array>
 
     <array name="underground_highlight_presets">
-        <item>@style/BauHighlightPresetStyleUnderGround</item>
+        <item>@style/BauHighlightPresetStyleUnderground</item>
         <item>@style/BauHighlightPresetStyleWreckOut</item>
         <item>@style/BauHighlightPresetStyleResag</item>
         <item>@style/BauHighlightPresetStyleStrand</item>
