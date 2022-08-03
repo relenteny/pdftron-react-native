@@ -1,27 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <style name="RNAppTheme" parent="RNAppThemeBase">
     </style>
 
     <style name="AerialAppTheme" parent="RNAppThemeBase">
         <item name="preset_colors_style">@style/BauPresetColorGridStyle</item>
         <item name="highlight_presets">@array/aerial_highlight_presets</item>
+        <item name="freehand_presets">@array/aerial_freehand_presets</item>
+        <item name="line_presets">@array/aerial_line_presets</item>
+        <item name="oval_presets">@array/aerial_oval_presets</item>
+        <item name="rect_presets">@array/aerial_rect_presets</item>
+        <item name="polyline_presets">@array/aerial_polylinepresets</item>
+        <item name="free_highlighter_presets">@array/aerial_free_highlighter_presets</item>
     </style>
 
     <style name="UndergroundAppTheme" parent="RNAppThemeBase">
         <item name="preset_colors_style">@style/BauPresetColorGridStyle</item>
         <item name="highlight_presets">@array/underground_highlight_presets</item>
+        <item name="freehand_presets">@array/undergrond_freehand_presets</item>
+        <item name="line_presets">@array/underground_line_presets</item>
+        <item name="oval_presets">@array/underground_oval_presets</item>
+        <item name="rect_presets">@array/underground_rect_presets</item>
+        <item name="polyline_presets">@array/underground_polylinepresets</item>
+        <item name="free_highlighter_presets">@array/underground_free_highlighter_presets</item>
     </style>
 
     <style name="SplicingAppTheme" parent="RNAppThemeBase">
         <item name="preset_colors_style">@style/BauPresetColorGridStyle</item>
         <item name="highlight_presets">@array/splicing_highlight_presets</item>
+        <item name="freehand_presets">@array/splicing_freehand_presets</item>
+        <item name="line_presets">@array/splicing_line_presets</item>
+        <item name="oval_presets">@array/splicing_oval_presets</item>
+        <item name="rect_presets">@array/splicing_rect_presets</item>
+        <item name="polyline_presets">@array/splicing_polylinepresets</item>
+        <item name="free_highlighter_presets">@array/splicing_free_highlighter_presets</item>
     </style>
 
     <style name="ConnexonAppTheme" parent="RNAppThemeBase">
         <item name="preset_colors_style">@style/ConnexonPresetColorGridStyle</item>
         <item name="highlight_presets">@array/connexon_highlight_presets</item>
+        <item name="freehand_presets">@array/connexon_freehand_presets</item>
+        <item name="line_presets">@array/connexon_line_presets</item>
+        <item name="oval_presets">@array/connexon_oval_presets</item>
+        <item name="rect_presets">@array/connexon_rect_presets</item>
+        <item name="polyline_presets">@array/connexon_polylinepresets</item>
+        <item name="free_highlighter_presets">@array/connexon_free_highlighter_presets</item>
     </style>
 
     <style name="RNAppThemeBase" parent="PDFTronAppTheme">

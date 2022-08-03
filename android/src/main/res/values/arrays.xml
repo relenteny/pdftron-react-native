@@ -4,8 +4,49 @@
         <item>STAMPER</item>
     </string-array>
 
-
     <array name="aerial_highlight_presets">
+        <item>@style/BauHighlightPresetStyleCoax</item>
+        <item>@style/BauHighlightPresetStyleFiber</item>
+        <item>@style/BauHighlightPresetStyleStrand</item>
+        <item>@style/BauHighlightPresetStyleSplice</item>
+    </array>
+
+    <array name="aerial_freehand_presets">
+        <item>@style/BauHighlightPresetStyleCoax</item>
+        <item>@style/BauHighlightPresetStyleFiber</item>
+        <item>@style/BauHighlightPresetStyleStrand</item>
+        <item>@style/BauHighlightPresetStyleSplice</item>
+    </array>
+
+    <array name="aerial_line_presets">
+        <item>@style/BauHighlightPresetStyleCoax</item>
+        <item>@style/BauHighlightPresetStyleFiber</item>
+        <item>@style/BauHighlightPresetStyleStrand</item>
+        <item>@style/BauHighlightPresetStyleSplice</item>
+    </array>
+
+    <array name="aerial_oval_presets">
+        <item>@style/BauHighlightPresetStyleCoax</item>
+        <item>@style/BauHighlightPresetStyleFiber</item>
+        <item>@style/BauHighlightPresetStyleStrand</item>
+        <item>@style/BauHighlightPresetStyleSplice</item>
+    </array>
+
+    <array name="aerial_rect_presets">
+        <item>@style/BauHighlightPresetStyleCoax</item>
+        <item>@style/BauHighlightPresetStyleFiber</item>
+        <item>@style/BauHighlightPresetStyleStrand</item>
+        <item>@style/BauHighlightPresetStyleSplice</item>
+    </array>
+
+    <array name="aerial_polyline_presets">
+        <item>@style/BauHighlightPresetStyleCoax</item>
+        <item>@style/BauHighlightPresetStyleFiber</item>
+        <item>@style/BauHighlightPresetStyleStrand</item>
+        <item>@style/BauHighlightPresetStyleSplice</item>
+    </array>
+
+    <array name="aerial_free_highlighter_presets">
         <item>@style/BauHighlightPresetStyleCoax</item>
         <item>@style/BauHighlightPresetStyleFiber</item>
         <item>@style/BauHighlightPresetStyleStrand</item>
@@ -19,6 +60,48 @@
         <item>@style/BauHighlightPresetStyleStrand</item>
     </array>
 
+    <array name="underground_freehand_presets">
+        <item>@style/BauHighlightPresetStyleCoax</item>
+        <item>@style/BauHighlightPresetStyleFiber</item>
+        <item>@style/BauHighlightPresetStyleStrand</item>
+        <item>@style/BauHighlightPresetStyleSplice</item>
+    </array>
+
+    <array name="underground_line_presets">
+        <item>@style/BauHighlightPresetStyleCoax</item>
+        <item>@style/BauHighlightPresetStyleFiber</item>
+        <item>@style/BauHighlightPresetStyleStrand</item>
+        <item>@style/BauHighlightPresetStyleSplice</item>
+    </array>
+
+    <array name="underground_oval_presets">
+        <item>@style/BauHighlightPresetStyleCoax</item>
+        <item>@style/BauHighlightPresetStyleFiber</item>
+        <item>@style/BauHighlightPresetStyleStrand</item>
+        <item>@style/BauHighlightPresetStyleSplice</item>
+    </array>
+
+    <array name="underground_rect_presets">
+        <item>@style/BauHighlightPresetStyleCoax</item>
+        <item>@style/BauHighlightPresetStyleFiber</item>
+        <item>@style/BauHighlightPresetStyleStrand</item>
+        <item>@style/BauHighlightPresetStyleSplice</item>
+    </array>
+
+    <array name="underground_polyline_presets">
+        <item>@style/BauHighlightPresetStyleCoax</item>
+        <item>@style/BauHighlightPresetStyleFiber</item>
+        <item>@style/BauHighlightPresetStyleStrand</item>
+        <item>@style/BauHighlightPresetStyleSplice</item>
+    </array>
+
+    <array name="underground_free_highlighter_presets">
+        <item>@style/BauHighlightPresetStyleCoax</item>
+        <item>@style/BauHighlightPresetStyleFiber</item>
+        <item>@style/BauHighlightPresetStyleStrand</item>
+        <item>@style/BauHighlightPresetStyleSplice</item>
+    </array>
+
     <array name="splicing_highlight_presets">
         <item>@style/BauHighlightPresetStyleStrand</item>
         <item>@style/BauHighlightPresetStyleSplice</item>
@@ -26,10 +109,94 @@
         <item>@style/BauHighlightPresetStyleFiber</item>
     </array>
 
+    <array name="splicing_freehand_presets">
+        <item>@style/BauHighlightPresetStyleCoax</item>
+        <item>@style/BauHighlightPresetStyleFiber</item>
+        <item>@style/BauHighlightPresetStyleStrand</item>
+        <item>@style/BauHighlightPresetStyleSplice</item>
+    </array>
+
+    <array name="splicing_line_presets">
+        <item>@style/BauHighlightPresetStyleCoax</item>
+        <item>@style/BauHighlightPresetStyleFiber</item>
+        <item>@style/BauHighlightPresetStyleStrand</item>
+        <item>@style/BauHighlightPresetStyleSplice</item>
+    </array>
+
+    <array name="splicing_oval_presets">
+        <item>@style/BauHighlightPresetStyleCoax</item>
+        <item>@style/BauHighlightPresetStyleFiber</item>
+        <item>@style/BauHighlightPresetStyleStrand</item>
+        <item>@style/BauHighlightPresetStyleSplice</item>
+    </array>
+
+    <array name="splicing_rect_presets">
+        <item>@style/BauHighlightPresetStyleCoax</item>
+        <item>@style/BauHighlightPresetStyleFiber</item>
+        <item>@style/BauHighlightPresetStyleStrand</item>
+        <item>@style/BauHighlightPresetStyleSplice</item>
+    </array>
+
+    <array name="splicing_polyline_presets">
+        <item>@style/BauHighlightPresetStyleCoax</item>
+        <item>@style/BauHighlightPresetStyleFiber</item>
+        <item>@style/BauHighlightPresetStyleStrand</item>
+        <item>@style/BauHighlightPresetStyleSplice</item>
+    </array>
+
+    <array name="splicing_free_highlighter_presets">
+        <item>@style/BauHighlightPresetStyleCoax</item>
+        <item>@style/BauHighlightPresetStyleFiber</item>
+        <item>@style/BauHighlightPresetStyleStrand</item>
+        <item>@style/BauHighlightPresetStyleSplice</item>
+    </array>
+
     <array name="connexon_highlight_presets">
         <item>@style/ConnexonHighlightPresetStyleFiber</item>
         <item>@style/ConnexonHighlightPresetStyleStrand</item>
         <item>@style/ConnexonHighlightPresetStyleUnderground</item>
+    </array>
+
+    <array name="connexon_freehand_presets">
+        <item>@style/BauHighlightPresetStyleCoax</item>
+        <item>@style/BauHighlightPresetStyleFiber</item>
+        <item>@style/BauHighlightPresetStyleStrand</item>
+        <item>@style/BauHighlightPresetStyleSplice</item>
+    </array>
+
+    <array name="connexon_line_presets">
+        <item>@style/BauHighlightPresetStyleCoax</item>
+        <item>@style/BauHighlightPresetStyleFiber</item>
+        <item>@style/BauHighlightPresetStyleStrand</item>
+        <item>@style/BauHighlightPresetStyleSplice</item>
+    </array>
+
+    <array name="connexon_oval_presets">
+        <item>@style/BauHighlightPresetStyleCoax</item>
+        <item>@style/BauHighlightPresetStyleFiber</item>
+        <item>@style/BauHighlightPresetStyleStrand</item>
+        <item>@style/BauHighlightPresetStyleSplice</item>
+    </array>
+
+    <array name="connexon_rect_presets">
+        <item>@style/BauHighlightPresetStyleCoax</item>
+        <item>@style/BauHighlightPresetStyleFiber</item>
+        <item>@style/BauHighlightPresetStyleStrand</item>
+        <item>@style/BauHighlightPresetStyleSplice</item>
+    </array>
+
+    <array name="connexon_polyline_presets">
+        <item>@style/BauHighlightPresetStyleCoax</item>
+        <item>@style/BauHighlightPresetStyleFiber</item>
+        <item>@style/BauHighlightPresetStyleStrand</item>
+        <item>@style/BauHighlightPresetStyleSplice</item>
+    </array>
+
+    <array name="connexon_free_highlighter_presets">
+        <item>@style/BauHighlightPresetStyleCoax</item>
+        <item>@style/BauHighlightPresetStyleFiber</item>
+        <item>@style/BauHighlightPresetStyleStrand</item>
+        <item>@style/BauHighlightPresetStyleSplice</item>
     </array>
 
     <string-array name="bau_standard_colors">
@@ -40,11 +207,13 @@
         <item>#a73c08</item>
         <item>#fffd3c</item>
         <item>#9f1af5</item>
+        <item>#000000</item>
     </string-array>
 
     <string-array name="connexon_standard_colors">
         <item>#fb7d9c</item>
         <item>#75d940</item>
         <item>#0021fa</item>
+        <item>#000000</item>
     </string-array>
 </resources>
