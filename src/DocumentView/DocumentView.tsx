@@ -21,6 +21,7 @@ import * as AnnotOptions from "../AnnotOptions/AnnotOptions";
  * Config.Buttons values", please use {@link oneOf} or {@link arrayOf}.
  */
 const propTypes = {
+  theme: PropTypes.string,
   document: PropTypes.string.isRequired,
   source: PropTypes.string,
   password: PropTypes.string,

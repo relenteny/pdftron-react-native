@@ -55,6 +55,11 @@ public class DocumentViewViewManager extends ViewGroupManager<DocumentView> {
         return documentView;
     }
 
+    @ReactProp(name = "theme")
+    public void setDocument(DocumentView documentView, @NonNull String theme) {
+        documentView.setTheme(theme);
+    }
+
     @ReactProp(name = "document")
     public void setDocument(DocumentView documentView, @NonNull String filepath) {
         documentView.setDocument(filepath);
