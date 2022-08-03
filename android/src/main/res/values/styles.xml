@@ -12,6 +12,7 @@
         <item name="rect_presets">@array/aerial_rect_presets</item>
         <item name="polyline_presets">@array/aerial_polyline_presets</item>
         <item name="free_highlighter_presets">@array/aerial_free_highlighter_presets</item>
+        <item name="callout_presets">@array/bigham_callout_presets</item>
     </style>
 
     <style name="UndergroundAppTheme" parent="RNAppThemeBase">
@@ -23,6 +24,7 @@
         <item name="rect_presets">@array/underground_rect_presets</item>
         <item name="polyline_presets">@array/underground_polyline_presets</item>
         <item name="free_highlighter_presets">@array/underground_free_highlighter_presets</item>
+        <item name="callout_presets">@array/bigham_callout_presets</item>
     </style>
 
     <style name="SplicingAppTheme" parent="RNAppThemeBase">
@@ -34,6 +36,7 @@
         <item name="rect_presets">@array/splicing_rect_presets</item>
         <item name="polyline_presets">@array/splicing_polyline_presets</item>
         <item name="free_highlighter_presets">@array/splicing_free_highlighter_presets</item>
+        <item name="callout_presets">@array/bigham_callout_presets</item>
     </style>
 
     <style name="ConnexonAppTheme" parent="RNAppThemeBase">
@@ -45,6 +48,7 @@
         <item name="rect_presets">@array/connexon_rect_presets</item>
         <item name="polyline_presets">@array/connexon_polyline_presets</item>
         <item name="free_highlighter_presets">@array/connexon_free_highlighter_presets</item>
+        <item name="callout_presets">@array/bigham_callout_presets</item>
     </style>
 
     <style name="RNAppThemeBase" parent="PDFTronAppTheme">
@@ -71,46 +75,74 @@
 
     <style name="BauHighlightPresetStyleCoax">
         <item name="annot_color">#fb7d9c</item>
-        <item name="annot_opacity">65</item>
+        <item name="annot_opacity">0.65</item>
         <item name="annot_thickness">10.0</item>
     </style>
 
     <style name="BauHighlightPresetStyleFiber">
         <item name="annot_color">#fb6b17</item>
+        <item name="annot_opacity">0.65</item>
+        <item name="annot_thickness">10.0</item>
     </style>
 
     <style name="BauHighlightPresetStyleStrand">
         <item name="annot_color">#75d940</item>
+        <item name="annot_opacity">0.65</item>
+        <item name="annot_thickness">10.0</item>
     </style>
 
     <style name="BauHighlightPresetStyleSplice">
         <item name="annot_color">#0021fa</item>
+        <item name="annot_opacity">0.65</item>
+        <item name="annot_thickness">10.0</item>
     </style>
 
     <style name="BauHighlightPresetStyleWreckOut">
         <item name="annot_color">#a73c08</item>
+        <item name="annot_opacity">0.65</item>
+        <item name="annot_thickness">10.0</item>
     </style>
 
     <style name="BauHighlightPresetStyleUnderground">
         <item name="annot_color">#fffd3c</item>
+        <item name="annot_opacity">0.65</item>
+        <item name="annot_thickness">10.0</item>
     </style>
 
     <style name="BauHighlightPresetStyleResag">
         <item name="annot_color">#9f1af5</item>
+        <item name="annot_opacity">0.65</item>
+        <item name="annot_thickness">10.0</item>
     </style>
 
     <!-- Connexon -->
 
     <style name="ConnexonHighlightPresetStyleFiber">
         <item name="annot_color">#fb7d9c</item>
+        <item name="annot_opacity">0.65</item>
+        <item name="annot_thickness">10.0</item>
     </style>
 
     <style name="ConnexonHighlightPresetStyleStrand">
         <item name="annot_color">#0021fa</item>
+        <item name="annot_opacity">0.65</item>
+        <item name="annot_thickness">10.0</item>
     </style>
 
     <style name="ConnexonHighlightPresetStyleUnderground">
         <item name="annot_color">#45ff3c</item>
+        <item name="annot_opacity">0.65</item>
+        <item name="annot_thickness">10.0</item>
+    </style>
+
+    <style name="BighamCalloutPresetStyle1">
+        <item name="annot_text_color">#000000</item>
+        <item name="annot_font_size">16</item>
+        <item name="annot_color">#fffd3c</item>
+        <item name="annot_thickness">3</item>
+        <item name="annot_font">Roboto</item>
+        <item name="annot_text_size_min">4</item>
+        <item name="annot_text_size_max">72</item>
     </style>
 
 </resources>
