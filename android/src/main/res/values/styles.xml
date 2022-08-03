@@ -27,12 +27,4 @@
     <style name="BighamHighlightPresetStyle4">
         <item name="annot_color">#33FFDA</item>
     </style>
-
-    <array name="bigham_highlight_presets">
-        <item>@style/BighamHighlightPresetStyleSplicer</item>
-        <item>@style/BighamHighlightPresetStyle2</item>
-        <item>@style/BighamHighlightPresetStyle3</item>
-        <item>@style/BighamHighlightPresetStyle4</item>
-    </array>
-
 </resources>

@@ -3,4 +3,13 @@
     <string-array name="disable_tool_modes">
         <item>STAMPER</item>
     </string-array>
+
+
+    <array name="bigham_highlight_presets">
+        <item>@style/BighamHighlightPresetStyleSplicer</item>
+        <item>@style/BighamHighlightPresetStyle2</item>
+        <item>@style/BighamHighlightPresetStyle3</item>
+        <item>@style/BighamHighlightPresetStyle4</item>
+    </array>
+
 </resources>
