@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!--
     <string-array name="disable_tool_modes">
         <item>STAMPER</item>
     </string-array>
--->
+
     <array name="aerial_highlight_presets">
         <item>@style/BauHighlightPresetStyleCoax</item>
         <item>@style/BauHighlightPresetStyleFiber</item>
@@ -12,28 +11,7 @@
         <item>@style/BauHighlightPresetStyleResag</item>
     </array>
 
-    <array name="aerial_freehand_presets">
-        <item>@style/BauHighlightPresetStyleCoax</item>
-        <item>@style/BauHighlightPresetStyleFiber</item>
-        <item>@style/BauHighlightPresetStyleStrand</item>
-        <item>@style/BauHighlightPresetStyleResag</item>
-    </array>
-
     <array name="aerial_line_presets">
-        <item>@style/BauHighlightPresetStyleCoax</item>
-        <item>@style/BauHighlightPresetStyleFiber</item>
-        <item>@style/BauHighlightPresetStyleStrand</item>
-        <item>@style/BauHighlightPresetStyleResag</item>
-    </array>
-
-    <array name="aerial_oval_presets">
-        <item>@style/BauHighlightPresetStyleCoax</item>
-        <item>@style/BauHighlightPresetStyleFiber</item>
-        <item>@style/BauHighlightPresetStyleStrand</item>
-        <item>@style/BauHighlightPresetStyleResag</item>
-    </array>
-
-    <array name="aerial_rect_presets">
         <item>@style/BauHighlightPresetStyleCoax</item>
         <item>@style/BauHighlightPresetStyleFiber</item>
         <item>@style/BauHighlightPresetStyleStrand</item>
@@ -60,25 +38,7 @@
         <item>@style/BauHighlightPresetStyleUnderground</item>
     </array>
 
-    <array name="underground_freehand_presets">
-        <item>@style/BauHighlightPresetStyleCoax</item>
-        <item>@style/BauHighlightPresetStyleFiber</item>
-        <item>@style/BauHighlightPresetStyleUnderground</item>
-    </array>
-
     <array name="underground_line_presets">
-        <item>@style/BauHighlightPresetStyleCoax</item>
-        <item>@style/BauHighlightPresetStyleFiber</item>
-        <item>@style/BauHighlightPresetStyleUnderground</item>
-    </array>
-
-    <array name="underground_oval_presets">
-        <item>@style/BauHighlightPresetStyleCoax</item>
-        <item>@style/BauHighlightPresetStyleFiber</item>
-        <item>@style/BauHighlightPresetStyleUnderground</item>
-    </array>
-
-    <array name="underground_rect_presets">
         <item>@style/BauHighlightPresetStyleCoax</item>
         <item>@style/BauHighlightPresetStyleFiber</item>
         <item>@style/BauHighlightPresetStyleUnderground</item>
@@ -102,25 +62,7 @@
         <item>@style/BauHighlightPresetStyleWreckOut</item>
     </array>
 
-    <array name="splicing_freehand_presets">
-        <item>@style/BauHighlightPresetStyleSplice</item>
-        <item>@style/BauHighlightPresetStyleCoax</item>
-        <item>@style/BauHighlightPresetStyleWreckOut</item>
-    </array>
-
     <array name="splicing_line_presets">
-        <item>@style/BauHighlightPresetStyleSplice</item>
-        <item>@style/BauHighlightPresetStyleCoax</item>
-        <item>@style/BauHighlightPresetStyleWreckOut</item>
-    </array>
-
-    <array name="splicing_oval_presets">
-        <item>@style/BauHighlightPresetStyleSplice</item>
-        <item>@style/BauHighlightPresetStyleCoax</item>
-        <item>@style/BauHighlightPresetStyleWreckOut</item>
-    </array>
-
-    <array name="splicing_rect_presets">
         <item>@style/BauHighlightPresetStyleSplice</item>
         <item>@style/BauHighlightPresetStyleCoax</item>
         <item>@style/BauHighlightPresetStyleWreckOut</item>
@@ -144,25 +86,7 @@
         <item>@style/ConnexonHighlightPresetStyleUnderground</item>
     </array>
 
-    <array name="connexon_freehand_presets">
-        <item>@style/ConnexonHighlightPresetStyleFiber</item>
-        <item>@style/ConnexonHighlightPresetStyleStrand</item>
-        <item>@style/ConnexonHighlightPresetStyleUnderground</item>
-    </array>
-
     <array name="connexon_line_presets">
-        <item>@style/ConnexonHighlightPresetStyleFiber</item>
-        <item>@style/ConnexonHighlightPresetStyleStrand</item>
-        <item>@style/ConnexonHighlightPresetStyleUnderground</item>
-    </array>
-
-    <array name="connexon_oval_presets">
-        <item>@style/ConnexonHighlightPresetStyleFiber</item>
-        <item>@style/ConnexonHighlightPresetStyleStrand</item>
-        <item>@style/ConnexonHighlightPresetStyleUnderground</item>
-    </array>
-
-    <array name="connexon_rect_presets">
         <item>@style/ConnexonHighlightPresetStyleFiber</item>
         <item>@style/ConnexonHighlightPresetStyleStrand</item>
         <item>@style/ConnexonHighlightPresetStyleUnderground</item>
