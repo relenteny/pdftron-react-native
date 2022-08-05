@@ -543,7 +543,7 @@ public class DocumentViewViewManager extends ViewGroupManager<DocumentView> {
         if (documentView != null) {
             documentView.useCustomStamp(stamp);
         } else {
-            throw new PDFNetException("", 0L, getName(), "setCustomStamp", "Unable to find DocumentView.");
+            throw new PDFNetException("", 0L, getName(), "useCustomStamp", "Unable to find DocumentView.");
         }
     }
 
