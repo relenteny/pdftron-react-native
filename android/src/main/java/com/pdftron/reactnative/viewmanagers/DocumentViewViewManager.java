@@ -538,7 +538,7 @@ public class DocumentViewViewManager extends ViewGroupManager<DocumentView> {
         documentView.setOverrideToolbarButtonBehavior(items);
     }
 
-    public void useCustomStamp(int tag, String stamp) {
+    public void useCustomStamp(int tag, String stamp) throws PDFNetException {
         DocumentView documentView = mDocumentViews.get(tag);
         if (documentView != null) {
             documentView.useCustomStamp(stamp);
