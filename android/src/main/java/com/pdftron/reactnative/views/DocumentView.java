@@ -97,6 +97,8 @@ import com.pdftron.reactnative.nativeviews.RNPdfViewCtrlTabHostFragment;
 import com.pdftron.reactnative.utils.ReactUtils;
 import com.pdftron.sdf.Obj;
 
+import com.pdftron.reactnative.stamps.CustomStamp;
+
 import org.apache.commons.io.FileUtils;
 import org.json.JSONException;
 
@@ -260,6 +262,7 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
         mToolManagerBuilder = ToolManagerBuilder.from()
                 .setShowRichContentOption(false)
                 .setOpenToolbar(true);
+                .addCustomizedTool(CustomStamp.MODE, CustomStamp.class);
         mBuilder = new ViewerConfig.Builder();
         mBuilder
                 .fullscreenModeEnabled(false)
