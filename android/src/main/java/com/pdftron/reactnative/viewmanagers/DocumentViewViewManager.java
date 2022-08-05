@@ -60,6 +60,11 @@ public class DocumentViewViewManager extends ViewGroupManager<DocumentView> {
         documentView.setTheme(theme);
     }
 
+    @ReactProp(name = "custom")
+    public void useCustomStamp(DocumentView documentView, @NonNull String stamp) {
+        documentView.useCustomStamp(stamp);
+    }
+
     @ReactProp(name = "document")
     public void setDocument(DocumentView documentView, @NonNull String filepath) {
         documentView.setDocument(filepath);

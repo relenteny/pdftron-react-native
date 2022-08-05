@@ -338,6 +338,19 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
         }
     }
 
+    public void custStamp(String name) {
+        useCustomStamp(name);
+    }
+
+    public void useCustomStamp(String name) {
+        PdfViewCtrlTabHostFragment2 fragment = getViewer();
+        // Create our custom tool
+        ToolManager toolManager = fragment.getCurrentPdfViewCtrlFragment().getToolManager();
+        ToolManager.Tool customTool = toolManager.createTool(CustomStamp.MODE, toolManager.getTool());
+        // Then set it in ToolManager
+        toolManager.setTool(customTool);
+    }
+
     // End Bigham Configuration
 
     public void setDocument(String path) {
