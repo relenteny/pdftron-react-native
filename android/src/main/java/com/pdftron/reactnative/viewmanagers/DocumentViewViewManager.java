@@ -60,11 +60,6 @@ public class DocumentViewViewManager extends ViewGroupManager<DocumentView> {
         documentView.setTheme(theme);
     }
 
-    @ReactProp(name = "custom")
-    public void useCustomStamp(DocumentView documentView, @NonNull String stamp) {
-        documentView.useCustomStamp(stamp);
-    }
-
     @ReactProp(name = "document")
     public void setDocument(DocumentView documentView, @NonNull String filepath) {
         documentView.setDocument(filepath);
@@ -541,6 +536,15 @@ public class DocumentViewViewManager extends ViewGroupManager<DocumentView> {
     @ReactProp(name = "overrideToolbarButtonBehavior")
     public void setOverrideToolbarButtonBehavior(DocumentView documentView, @NonNull ReadableArray items) {
         documentView.setOverrideToolbarButtonBehavior(items);
+    }
+
+    public void useCustomStamp(int tag, String stamp) {
+        DocumentView documentView = mDocumentViews.get(tag);
+        if (documentView != null) {
+            documentView.useCustomStamp(stamp);
+        } else {
+            throw new PDFNetException("", 0L, getName(), "setCustomStamp", "Unable to find DocumentView.");
+        }
     }
 
     public void importBookmarkJson(int tag, String bookmarkJson) throws PDFNetException {
