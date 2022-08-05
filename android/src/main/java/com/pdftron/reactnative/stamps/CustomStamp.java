@@ -9,6 +9,8 @@ import com.pdftron.pdf.tools.Stamper;
 import com.pdftron.pdf.tools.ToolManager;
 import com.pdftron.pdf.utils.Utils;
 
+import com.pdftron.reactnative.R;
+
 import java.io.File;
 
 public class CustomStamp extends Stamper {
