@@ -340,13 +340,13 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
 
     public void useCustomStamp(String name) {
         System.out.println("UseCustomStamp...");
-        if (getPdfViewCtrlTabFragment() != null &&
-                getPdfViewCtrlTabFragment().isDocumentReady()) {
+        PDFViewCtrl pdfViewCtrl = getPdfViewCtrl();
+        ToolManager toolManager = (ToolManager) pdfViewCtrl.getToolManager();
             // Create our custom tool
             System.out.println("begin...");
-            ToolManager toolManager = getPdfViewCtrlTabFragment().getToolManager();
             ToolManager.Tool customTool = toolManager.createTool(CustomStamp.MODE, toolManager.getTool());
             // Then set it in ToolManager
+            System.out.println("setting tool...");
             toolManager.setTool(customTool);
         }
     }
