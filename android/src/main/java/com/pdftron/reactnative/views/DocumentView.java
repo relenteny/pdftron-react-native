@@ -344,7 +344,7 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
                 getPdfViewCtrlTabFragment().isDocumentReady()) {
             // Create our custom tool
             System.out.println("begin...");
-            ToolManager toolManager = getToolManager();
+            ToolManager toolManager = getPdfViewCtrlTabFragment().getToolManager();
             ToolManager.Tool customTool = toolManager.createTool(CustomStamp.MODE, toolManager.getTool());
             // Then set it in ToolManager
             toolManager.setTool(customTool);
