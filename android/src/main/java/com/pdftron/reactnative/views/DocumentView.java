@@ -261,8 +261,8 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
 
         mToolManagerBuilder = ToolManagerBuilder.from()
                 .setShowRichContentOption(false)
-                .setOpenToolbar(true)
-                .addCustomizedTool(CustomStamp.MODE, CustomStamp.class);
+                .setOpenToolbar(true);
+                //.addCustomizedTool(CustomStamp.MODE, CustomStamp.class);
         mBuilder = new ViewerConfig.Builder();
         mBuilder
                 .fullscreenModeEnabled(false)
@@ -342,7 +342,7 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
         System.out.println("UseCustomStamp...");
         PDFViewCtrl pdfViewCtrl = getPdfViewCtrl();
         ToolManager toolManager = (ToolManager) pdfViewCtrl.getToolManager();
-        toolManager.setTool(toolManager.createTool(CustomStamp.MODE, toolManager.getTool()));
+        toolManager.setTool(toolManager.createTool(ToolManager.ToolMode.STAMPER, toolManager.getTool()));
     }
 
     // End Bigham Configuration
