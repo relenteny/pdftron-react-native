@@ -340,14 +340,7 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
 
     public void useCustomStamp(String name) {
         System.out.println("UseCustomStamp...");
-        PDFViewCtrl pdfViewCtrl = getPdfViewCtrl();
-        ToolManager toolManager = (ToolManager) pdfViewCtrl.getToolManager();
-        // Create our custom tool
-        System.out.println("begin...");
-        ToolManager.Tool customTool = toolManager.createTool(CustomStamp.MODE, toolManager.getTool());
-        // Then set it in ToolManager
-        System.out.println("setting tool...");
-        toolManager.setTool(customTool);
+        getToolManager().setTool(toolManager.createTool(CustomStamp.MODE, toolManager.getTool()));
     }
 
     // End Bigham Configuration
