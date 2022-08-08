@@ -259,11 +259,13 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
 
         PdfViewCtrlSettingsManager.setFullScreenMode(currentActivity, false);
 
+        System.out.println("Adding custom tool...");
         mToolManagerBuilder = ToolManagerBuilder.from()
                 .setShowRichContentOption(false)
                 .setOpenToolbar(true)
                 .addCustomizedTool(CustomStamp.MODE, CustomStamp.class);
-        mBuilder = new ViewerConfig.Builder();
+        System.out.println("Custom tool added...");
+                mBuilder = new ViewerConfig.Builder();
         mBuilder
                 .fullscreenModeEnabled(false)
                 .multiTabEnabled(false)
