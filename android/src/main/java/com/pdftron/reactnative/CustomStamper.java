@@ -19,6 +19,8 @@ import com.pdftron.pdf.utils.Utils;
 import com.pdftron.common.Matrix2D;
 import com.pdftron.pdf.Point;
 import com.pdftron.pdf.utils.AnalyticsHandlerAdapter;
+import com.pdftron.pdf.annots.Markup;
+import com.pdftron.pdf.PageSet;
 
 public class CustomStamper extends Stamper {
     private Uri mUri;
