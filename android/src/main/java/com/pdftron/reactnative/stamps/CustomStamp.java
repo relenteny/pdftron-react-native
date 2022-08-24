@@ -15,16 +15,8 @@ import java.io.File;
 
 public class CustomStamp extends Stamper {
 
-    public static ToolManager.ToolModeBase MODE =
-            ToolManager.ToolMode.addNewMode(Annot.e_Stamp);
-
     public CustomStamp(@NonNull PDFViewCtrl ctrl) {
         super(ctrl);
-    }
-
-    @Override
-    public ToolManager.ToolModeBase getToolMode() {
-        return MODE;
     }
 
     @Override
