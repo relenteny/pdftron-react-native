@@ -97,8 +97,6 @@ import com.pdftron.reactnative.nativeviews.RNPdfViewCtrlTabHostFragment;
 import com.pdftron.reactnative.utils.ReactUtils;
 import com.pdftron.sdf.Obj;
 
-import com.pdftron.reactnative.stamps.CustomStamp;
-
 import org.apache.commons.io.FileUtils;
 import org.json.JSONException;
 
@@ -263,8 +261,6 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
         mToolManagerBuilder = ToolManagerBuilder.from()
                 .setShowRichContentOption(false)
                 .setOpenToolbar(true)
-                .addCustomizedTool(ToolManager.ToolMode.STAMPER, CustomStamp.class);
-        System.out.println("Custom tool added...");
                 mBuilder = new ViewerConfig.Builder();
         mBuilder
                 .fullscreenModeEnabled(false)
@@ -337,19 +333,6 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
                 break;
             default:
                 mTheme = R.style.RNAppTheme;
-        }
-    }
-
-    public void useCustomStamp(String name) {
-        System.out.println("UseCustomStamp...");
-        if (mPdfViewCtrlTabHostFragment != null) {
-            System.out.println("Fragment...");
-            ToolManager toolManager = mPdfViewCtrlTabHostFragment.getCurrentPdfViewCtrlFragment().getToolManager();
-            System.out.println("Create...");
-            ToolManager.Tool stampTool = toolManager.createTool(CustomStamp.MODE, toolManager.getTool());
-            System.out.println("Set...");
-            toolManager.setTool(stampTool);
-            System.out.println("Done...");
         }
     }
 

@@ -437,14 +437,6 @@ export class DocumentView extends PureComponent<DocumentViewProps, any> {
 
   // Methods
 
-  useCustomStamp = (stamp: string): Promise<void> => {
-    const tag = findNodeHandle(this._viewerRef);
-    if (tag != null) {
-      return DocumentViewManager.useCustomStamp(tag, stamp);
-    }
-    return Promise.resolve();
-  }
-
   getDocumentPath = (): Promise<void | string> => {
     const tag = findNodeHandle(this._viewerRef);
     if (tag != null) {

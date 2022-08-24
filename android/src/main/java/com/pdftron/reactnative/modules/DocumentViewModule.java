@@ -35,21 +35,6 @@ public class DocumentViewModule extends ReactContextBaseJavaModule implements Ac
     }
 
     @ReactMethod
-    public void useCustomStamp(final int tag, final String stamp, final Promise promise) {
-        getReactApplicationContext().runOnUiQueueThread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    mDocumentViewInstance.useCustomStamp(tag, stamp);
-                    promise.resolve(null);
-                } catch (Exception ex) {
-                    promise.reject(ex);
-                }
-            }
-        });
-    }
-
-    @ReactMethod
     public void importBookmarkJson(final int tag, final String bookmarkJson, final Promise promise) {
         getReactApplicationContext().runOnUiQueueThread(new Runnable() {
             @Override

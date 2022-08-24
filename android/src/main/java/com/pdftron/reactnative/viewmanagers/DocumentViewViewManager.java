@@ -538,15 +538,6 @@ public class DocumentViewViewManager extends ViewGroupManager<DocumentView> {
         documentView.setOverrideToolbarButtonBehavior(items);
     }
 
-    public void useCustomStamp(int tag, String stamp) throws PDFNetException {
-        DocumentView documentView = mDocumentViews.get(tag);
-        if (documentView != null) {
-            documentView.useCustomStamp(stamp);
-        } else {
-            throw new PDFNetException("", 0L, getName(), "useCustomStamp", "Unable to find DocumentView.");
-        }
-    }
-
     public void importBookmarkJson(int tag, String bookmarkJson) throws PDFNetException {
         DocumentView documentView = mDocumentViews.get(tag);
         if (documentView != null) {
