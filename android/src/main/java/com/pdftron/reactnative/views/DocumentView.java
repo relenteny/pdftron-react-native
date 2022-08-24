@@ -262,8 +262,8 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
         mToolManagerBuilder = ToolManagerBuilder.from()
                 .setShowRichContentOption(false)
                 .addCustomizedTool(ToolManager.ToolMode.STAMPER, CustomStamper.class)
-                .setOpenToolbar(true)
-                mBuilder = new ViewerConfig.Builder();
+                .setOpenToolbar(true);
+        mBuilder = new ViewerConfig.Builder();
         mBuilder
                 .fullscreenModeEnabled(false)
                 .multiTabEnabled(false)
