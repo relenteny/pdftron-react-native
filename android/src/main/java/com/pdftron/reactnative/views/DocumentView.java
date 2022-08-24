@@ -90,6 +90,7 @@ import com.pdftron.pdf.widget.toolbar.TopToolbarMenuId;
 import com.pdftron.pdf.widget.toolbar.builder.AnnotationToolbarBuilder;
 import com.pdftron.pdf.widget.toolbar.builder.ToolbarButtonType;
 import com.pdftron.pdf.widget.toolbar.component.DefaultToolbars;
+import com.pdftron.reactnative.CustomStamper;
 import com.pdftron.reactnative.R;
 import com.pdftron.reactnative.nativeviews.RNCollabViewerTabHostFragment;
 import com.pdftron.reactnative.nativeviews.RNPdfViewCtrlTabFragment;
@@ -260,6 +261,7 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
         System.out.println("Adding custom tool...");
         mToolManagerBuilder = ToolManagerBuilder.from()
                 .setShowRichContentOption(false)
+                .addCustomizedTool(ToolManager.ToolMode.STAMPER, CustomStamper.class)
                 .setOpenToolbar(true)
                 mBuilder = new ViewerConfig.Builder();
         mBuilder
@@ -2802,7 +2804,6 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
             params.putString(ON_TOOL_CHANGED, ON_TOOL_CHANGED);
             params.putString(KEY_PREVIOUS_TOOL, oldToolString != null ? oldToolString : unknownString);
             params.putString(KEY_TOOL, newToolString != null ? newToolString : unknownString);
-
             onReceiveNativeEvent(params);
         }
     };
@@ -3096,6 +3097,7 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
         }
 
         onReceiveNativeEvent(ON_DOCUMENT_LOADED, tag);
+
     }
 
     @Override
@@ -3901,6 +3903,15 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
             boolean continuousAnnot = PdfViewCtrlSettingsManager.getContinuousAnnotationEdit(getContext());
             tool.setForceSameNextToolMode(continuousAnnot);
             getToolManager().setTool(tool);
+        }
+    }
+
+    public void setImageStampPath(String path) {
+        if (getToolManager() != null) {
+            ToolManager.Tool currentTool = getToolManager().getTool();
+            if (currentTool instanceof CustomStamper) {
+                ((CustomStamper) currentTool).setUri(Uri.fromFile(new File(path)));
+            }
         }
     }
 
