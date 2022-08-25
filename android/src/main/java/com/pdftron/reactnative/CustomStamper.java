@@ -159,7 +159,7 @@ public class CustomStamper extends Stamper {
 
             // double scaleFactor = Math.min(maxImageWidthPage / stampWidth, maxImageHeightPage / stampHeight);
             stampWidth *= mScaleFactor;
-            stampHeight *= mSaleFactor;
+            stampHeight *= mScaleFactor;
 
             // Stamp width and height are relative to the view rotation, not screen rotation
             if (viewRotation == Page.e_90 || viewRotation == Page.e_270) {
