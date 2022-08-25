@@ -99,6 +99,7 @@
         <item name="annot_color">#fffd3c</item>
         <item name="annot_opacity">0.65</item>
         <item name="annot_thickness">5.0</item>
+        <item name="annot_border_style">DASHED</item>
     </style>
 
     <style name="BauHighlightPresetStyleResag">
