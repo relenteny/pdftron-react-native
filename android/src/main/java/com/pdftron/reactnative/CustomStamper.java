@@ -24,6 +24,7 @@ import com.pdftron.pdf.PageSet;
 
 public class CustomStamper extends Stamper {
     private Uri mUri;
+    private double mScaleFactor = 1.0;
 
     public CustomStamper(@NonNull PDFViewCtrl ctrl) {
         super(ctrl);
@@ -31,6 +32,10 @@ public class CustomStamper extends Stamper {
 
     public void setUri(Uri uri) {
         mUri = uri;
+    }
+
+    public void setScaleFactor(double scaleFactor) {
+        mScaleFactor = scaleFactor;
     }
 
     @Override
@@ -152,9 +157,9 @@ public class CustomStamper extends Stamper {
                 maxImageHeightPage = pageHeight;
             }
 
-            double scaleFactor = Math.min(maxImageWidthPage / stampWidth, maxImageHeightPage / stampHeight);
-            // stampWidth *= scaleFactor;
-            // stampHeight *= scaleFactor;
+            // double scaleFactor = Math.min(maxImageWidthPage / stampWidth, maxImageHeightPage / stampHeight);
+            stampWidth *= mScaleFactor;
+            stampHeight *= mSaleFactor;
 
             // Stamp width and height are relative to the view rotation, not screen rotation
             if (viewRotation == Page.e_90 || viewRotation == Page.e_270) {

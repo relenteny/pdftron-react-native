@@ -638,6 +638,15 @@ public class DocumentViewViewManager extends ViewGroupManager<DocumentView> {
         }
     }
 
+    public void setImageStampScale(int tag, double scale) throws PDFNetException {
+        DocumentView documentView = mDocumentViews.get(tag);
+        if (documentView != null) {
+            documentView.setImageStampScale(scale);
+        } else {
+            throw new PDFNetException("", 0L, getName(), "setImageStampScale", "Unable to find DocumentView.");
+        }
+    }
+
     public boolean commitTool(int tag) throws PDFNetException {
         DocumentView documentView = mDocumentViews.get(tag);
         if (documentView != null) {

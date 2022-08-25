@@ -200,6 +200,21 @@ public class DocumentViewModule extends ReactContextBaseJavaModule implements Ac
     }
 
     @ReactMethod
+    public void setImageStampScale(final int tag, final double scale, final Promise promise) {
+        getReactApplicationContext().runOnUiQueueThread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    mDocumentViewInstance.setImageStampScale(tag, scale);
+                    promise.resolve(null);
+                } catch (Exception e) {
+                    promise.reject(e);
+                }
+            }
+        });
+    }
+
+    @ReactMethod
     public void commitTool(final int tag, final Promise promise) {
         getReactApplicationContext().runOnUiQueueThread(new Runnable() {
             @Override

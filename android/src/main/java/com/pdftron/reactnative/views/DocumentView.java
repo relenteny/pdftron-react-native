@@ -3915,6 +3915,15 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
         }
     }
 
+    public void setImageStampScale(double scale) {
+        if (getToolManager() != null) {
+            ToolManager.Tool currentTool = getToolManager().getTool();
+            if (currentTool instanceof CustomStamper) {
+                ((CustomStamper) currentTool).setScaleFactor(scale);
+            }
+        }
+    }
+
     public boolean commitTool() {
         if (getToolManager() != null) {
             ToolManager.Tool currentTool = getToolManager().getTool();
