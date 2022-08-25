@@ -68,43 +68,43 @@
     <style name="BauHighlightPresetStyleCoax">
         <item name="annot_color">#fb7d9c</item>
         <item name="annot_opacity">0.65</item>
-        <item name="annot_thickness">10.0</item>
+        <item name="annot_thickness">5.0</item>
     </style>
 
     <style name="BauHighlightPresetStyleFiber">
         <item name="annot_color">#fb6b17</item>
         <item name="annot_opacity">0.65</item>
-        <item name="annot_thickness">10.0</item>
+        <item name="annot_thickness">5.0</item>
     </style>
 
     <style name="BauHighlightPresetStyleStrand">
         <item name="annot_color">#75d940</item>
         <item name="annot_opacity">0.65</item>
-        <item name="annot_thickness">10.0</item>
+        <item name="annot_thickness">5.0</item>
     </style>
 
     <style name="BauHighlightPresetStyleSplice">
         <item name="annot_color">#0021fa</item>
         <item name="annot_opacity">0.65</item>
-        <item name="annot_thickness">10.0</item>
+        <item name="annot_thickness">5.0</item>
     </style>
 
     <style name="BauHighlightPresetStyleWreckOut">
         <item name="annot_color">#a73c08</item>
         <item name="annot_opacity">0.65</item>
-        <item name="annot_thickness">10.0</item>
+        <item name="annot_thickness">5.0</item>
     </style>
 
     <style name="BauHighlightPresetStyleUnderground">
         <item name="annot_color">#fffd3c</item>
         <item name="annot_opacity">0.65</item>
-        <item name="annot_thickness">10.0</item>
+        <item name="annot_thickness">5.0</item>
     </style>
 
     <style name="BauHighlightPresetStyleResag">
         <item name="annot_color">#9f1af5</item>
         <item name="annot_opacity">0.65</item>
-        <item name="annot_thickness">10.0</item>
+        <item name="annot_thickness">5.0</item>
     </style>
 
     <!-- Connexon -->
@@ -112,19 +112,19 @@
     <style name="ConnexonHighlightPresetStyleFiber">
         <item name="annot_color">#fb7d9c</item>
         <item name="annot_opacity">0.65</item>
-        <item name="annot_thickness">10.0</item>
+        <item name="annot_thickness">5.0</item>
     </style>
 
     <style name="ConnexonHighlightPresetStyleStrand">
         <item name="annot_color">#0021fa</item>
         <item name="annot_opacity">0.65</item>
-        <item name="annot_thickness">10.0</item>
+        <item name="annot_thickness">5.0</item>
     </style>
 
     <style name="ConnexonHighlightPresetStyleUnderground">
         <item name="annot_color">#45ff3c</item>
         <item name="annot_opacity">0.65</item>
-        <item name="annot_thickness">10.0</item>
+        <item name="annot_thickness">5.0</item>
     </style>
 
     <style name="BighamCalloutPresetStyle1">
