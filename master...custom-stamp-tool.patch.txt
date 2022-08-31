@@ -1,0 +1,541 @@
+From 3908328e4f78d48ad309639ef2df52ed945a58f2 Mon Sep 17 00:00:00 2001
+From: Andrew Ma <ama@pdftron.com>
+Date: Mon, 22 Aug 2022 14:26:47 -0700
+Subject: [PATCH 1/8] Sample CustomStamp Tool for React Native
+
+---
+ .../pdftron/reactnative/CustomStamper.java    |  37 ++++++++++++++++++
+ .../reactnative/views/DocumentView.java       |  16 ++++++++
+ android/src/main/res/raw/pdftron.png          | Bin 0 -> 1381 bytes
+ 3 files changed, 53 insertions(+)
+ create mode 100644 android/src/main/java/com/pdftron/reactnative/CustomStamper.java
+ create mode 100644 android/src/main/res/raw/pdftron.png
+
+diff --git a/android/src/main/java/com/pdftron/reactnative/CustomStamper.java b/android/src/main/java/com/pdftron/reactnative/CustomStamper.java
+new file mode 100644
+index 000000000..def4a462f
+--- /dev/null
++++ b/android/src/main/java/com/pdftron/reactnative/CustomStamper.java
+@@ -0,0 +1,37 @@
++package com.pdftron.reactnative;
++
++import android.net.Uri;
++import androidx.annotation.NonNull;
++
++import com.pdftron.pdf.Annot;
++import com.pdftron.pdf.PDFViewCtrl;
++import com.pdftron.pdf.tools.Stamper;
++import com.pdftron.pdf.tools.ToolManager;
++
++public class CustomStamper extends Stamper {
++    private Uri mUri;
++
++    public CustomStamper(@NonNull PDFViewCtrl ctrl) {
++        super(ctrl);
++    }
++
++    public void setUri(Uri uri) {
++        mUri = uri;
++    }
++
++    public static ToolManager.ToolModeBase MODE = ToolManager.ToolMode.STAMPER;
++
++    @Override
++    public ToolManager.ToolModeBase getToolMode() {
++        return MODE;
++    }
++
++    @Override
++    protected void addStamp() {
++        if (mUri != null) {
++            createImageStamp(mUri, 0, "");
++        } else {
++            mNextToolMode = getToolMode();
++        }
++    }
++}
+diff --git a/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java b/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
+index b41d992cd..615cee2a5 100644
+--- a/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
++++ b/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
+@@ -90,6 +90,7 @@
+ import com.pdftron.pdf.widget.toolbar.builder.AnnotationToolbarBuilder;
+ import com.pdftron.pdf.widget.toolbar.builder.ToolbarButtonType;
+ import com.pdftron.pdf.widget.toolbar.component.DefaultToolbars;
++import com.pdftron.reactnative.CustomStamper;
+ import com.pdftron.reactnative.R;
+ import com.pdftron.reactnative.nativeviews.RNCollabViewerTabHostFragment;
+ import com.pdftron.reactnative.nativeviews.RNPdfViewCtrlTabFragment;
+@@ -253,6 +254,7 @@ public boolean canShowToast(int res, @Nullable CharSequence charSequence) {
+ 
+         mToolManagerBuilder = ToolManagerBuilder.from()
+                 .setShowRichContentOption(false)
++                .addCustomizedTool(CustomStamper.MODE, CustomStamper.class)
+                 .setOpenToolbar(true);
+         mBuilder = new ViewerConfig.Builder();
+         mBuilder
+@@ -265,6 +267,14 @@ public boolean canShowToast(int res, @Nullable CharSequence charSequence) {
+                 .skipReadOnlyCheck(true);
+     }
+ 
++    public void useCustomTool(@NonNull PdfViewCtrlTabHostFragment2 fragment) {
++        // Create our custom tool
++        ToolManager toolManager = fragment.getCurrentPdfViewCtrlFragment().getToolManager();
++        ToolManager.Tool customTool = toolManager.createTool(CustomStamper.MODE, toolManager.getTool());
++        // Then set it in ToolManager
++        toolManager.setTool(customTool);
++    }
++
+     @Override
+     protected PdfViewCtrlTabHostFragment2 getViewer() {
+         if (mCollabEnabled) {
+@@ -2771,6 +2781,11 @@ public void toolChanged(ToolManager.Tool newTool, @Nullable ToolManager.Tool old
+             params.putString(KEY_PREVIOUS_TOOL, oldToolString != null ? oldToolString : unknownString);
+             params.putString(KEY_TOOL, newToolString != null ? newToolString : unknownString);
+ 
++            if (newTool.getToolMode() == CustomStamper.MODE) {
++                File resource = Utils.copyResourceToLocal(getContext(), R.raw.pdftron, "PDFTronLogo", "png");
++                ((CustomStamper) newTool).setUri(Uri.fromFile(resource));
++            }
++
+             onReceiveNativeEvent(params);
+         }
+     };
+@@ -3064,6 +3079,7 @@ public void onSendAnnotation(String s, ArrayList<AnnotationEntity> arrayList, St
+         }
+ 
+         onReceiveNativeEvent(ON_DOCUMENT_LOADED, tag);
++
+     }
+ 
+     @Override
+diff --git a/android/src/main/res/raw/pdftron.png b/android/src/main/res/raw/pdftron.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..a7288dc7cc0fa606cd8ade4ca97491d9e9ad7087
+GIT binary patch
+literal 1381
+zcmV-r1)BPaP)<h;3K|Lk000e1NJLTq0077U0077c0{{R3nucDi0006CP)t-s0Hx$3
+zvFFwB`qc0G%Ix{R==ieZ_NL$Uj@R>O$?rkC>Km@+DzoVS|Nrdx{Ho#hX36d%vFC8i
+z?-Q%$`27Abwdwx;{-fUYAFt<#)$#|Y<k0T=_WS;6%I}cZ^8uyg1*YV<<@W}s<fq^D
+ziPiG?{Qfew>Dlr63#jFu-1I}d>(=o4bItJa`uz~9<$cldam?@6@cK8n>6Y2^?fCrz
+zrsO%f>VVSm607BG%kOf{@Qc>+rQh}A_58@|`8>Mn{Qdq4sO4G2?eO{iIJoIMx$5=%
+z{Y$^=ncMWB-Sorh_!X??^!xqa^ZT6K^cSt>^ZNZSwdg{;>Po-sd(iPx!R&|B@=d_(
+zM7`@Xx9L8*>L9S^>G%B3?fHMv@vGtXdC%}3ujjGj_7tq<P{Hg!yXs)Z?t;?swdD7|
+z==k09``+{W`u+ao_53Wf=xWOEe9-Y&#O=W7`2GI=M!oCB>i8I~=C0!QT*d7SspXyA
+z^r7AL531$7=l3qP=(ObbI=Sk$<@Y7B=VZw4D6{Cv>-k~F?hdKt==S^qrQ{K-<>vPM
+zZ_Mv8w&^{(>fG}CnA-Hj>iGNp{(jN%+w%Lt>G*}y@?OU638>^PwCE?Y=vu_>^7{R#
+z;PoM}=N7Eytl{=4v*^a^_~7*Wl-ctfuI8fN^(3+9?)m+U*7D-?`v|AxCbH<d=J(QI
+zfcXFb0~Sd{K~#7F?9T-i0s#O-LEIO2&hW#fe>g(m|LruG41<}OnVFfHnVFfHSvL1-
+z`9iT&u2gIF%ttl!HqBPM^U26t<+?paMCz9ZjEFQGjTsTCKbbNj(yRfAC<q}DDT*Nx
+zl@mxr^93ZLWekaEMTsb+MAjQfMB5Y+(T)<)o)S4Ekcf_y$mtA;=t7A!Q%FQtO5{d~
+z=uU||xTyz)-EJTX!>i`1t^F0pzir#LZQHhu+PcWzL9>g=*~xPUZ!$BXwuFR*TN1(u
+zTS6l7e~XI#AH~GR#nY7pc%75@EL})ShWDkUQY{SzNY9|s$1p)Am9k)jY^vnI2)TJw
+z$cGsUsBp)D5z?qq2qT0SQK1-Sc!mlQFhdp<N??ZfsZa_tlu@A^W~iV-r7b&BWy{q{
+zhY`Z_s89_f)KH}sMtF`2?|cRmJaLB#bufYR3{~o3f(9xz!T?QFD}(1Xx6p-5c$(AN
+z_HG8<cnLba)ZWqgZddoyPxbV=65mIc`k~Fh;OFra^8k9hJ`_w*!_c8>gu+JOguJnF
+zitC2BiAieE0clfV)F5LTvV1etVivOI=BdX5L`^(NJr*Hq?n7#_1W6xsQ<G(gdXAdh
+zS%IWg>QVtoYZ=re|2_mc>(nG^36eIbOCTg|Zc&qGwjrsLnmpQpr2ApiWA{CX+M^!+
+z`w->iQ;RL(4jfR6!`C6~h&mh>LYOa%@=i{}AuXNq&e9<7l+s>#<1=V*PFblJo6x~`
+zhmvwGub{^@#pHFx+(4UK{{Ke5JnMS?g>)ZudY|s?esy|VbNA-!zg7E9G9HI-=~8^>
+zckr_BU1nT{!`ptK8$Vvb<D5HGyORRXo2FV{CA_bdY8^1ZPgMFDCisOazs|t~FH@xn
+zc7)X3w<P2@SQ3(ENyzVxB_T7gBxKK)kQZ$U$+aZp9mkRoe^?UIZ%at9Eg_F=3AtxW
+zNW3i}qkmWu!e49&`SY*#=a2vZ0E7V;o&xmubff|HW@|7J5fPCT5fKp)5fKp)5fKp)
+n5fKp)5s}$nR~`TW00007qCtG^KeMgq00000NkvXXu0mjf*pUcZ
+
+literal 0
+HcmV?d00001
+
+
+From d19f2a863de846abb61e7587ec4fbc886b576191 Mon Sep 17 00:00:00 2001
+From: Andrew Ma <ama@pdftron.com>
+Date: Mon, 22 Aug 2022 14:35:27 -0700
+Subject: [PATCH 2/8] Update
+
+---
+ .../java/com/pdftron/reactnative/CustomStamper.java  |  7 -------
+ .../com/pdftron/reactnative/views/DocumentView.java  | 12 ++----------
+ 2 files changed, 2 insertions(+), 17 deletions(-)
+
+diff --git a/android/src/main/java/com/pdftron/reactnative/CustomStamper.java b/android/src/main/java/com/pdftron/reactnative/CustomStamper.java
+index def4a462f..e7faeda35 100644
+--- a/android/src/main/java/com/pdftron/reactnative/CustomStamper.java
++++ b/android/src/main/java/com/pdftron/reactnative/CustomStamper.java
+@@ -19,13 +19,6 @@ public void setUri(Uri uri) {
+         mUri = uri;
+     }
+ 
+-    public static ToolManager.ToolModeBase MODE = ToolManager.ToolMode.STAMPER;
+-
+-    @Override
+-    public ToolManager.ToolModeBase getToolMode() {
+-        return MODE;
+-    }
+-
+     @Override
+     protected void addStamp() {
+         if (mUri != null) {
+diff --git a/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java b/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
+index 615cee2a5..8b02316e5 100644
+--- a/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
++++ b/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
+@@ -254,7 +254,7 @@ public boolean canShowToast(int res, @Nullable CharSequence charSequence) {
+ 
+         mToolManagerBuilder = ToolManagerBuilder.from()
+                 .setShowRichContentOption(false)
+-                .addCustomizedTool(CustomStamper.MODE, CustomStamper.class)
++                .addCustomizedTool(ToolManager.ToolMode.STAMPER, CustomStamper.class)
+                 .setOpenToolbar(true);
+         mBuilder = new ViewerConfig.Builder();
+         mBuilder
+@@ -267,14 +267,6 @@ public boolean canShowToast(int res, @Nullable CharSequence charSequence) {
+                 .skipReadOnlyCheck(true);
+     }
+ 
+-    public void useCustomTool(@NonNull PdfViewCtrlTabHostFragment2 fragment) {
+-        // Create our custom tool
+-        ToolManager toolManager = fragment.getCurrentPdfViewCtrlFragment().getToolManager();
+-        ToolManager.Tool customTool = toolManager.createTool(CustomStamper.MODE, toolManager.getTool());
+-        // Then set it in ToolManager
+-        toolManager.setTool(customTool);
+-    }
+-
+     @Override
+     protected PdfViewCtrlTabHostFragment2 getViewer() {
+         if (mCollabEnabled) {
+@@ -2781,7 +2773,7 @@ public void toolChanged(ToolManager.Tool newTool, @Nullable ToolManager.Tool old
+             params.putString(KEY_PREVIOUS_TOOL, oldToolString != null ? oldToolString : unknownString);
+             params.putString(KEY_TOOL, newToolString != null ? newToolString : unknownString);
+ 
+-            if (newTool.getToolMode() == CustomStamper.MODE) {
++            if (newTool.getToolMode() == ToolManager.ToolMode.STAMPER) {
+                 File resource = Utils.copyResourceToLocal(getContext(), R.raw.pdftron, "PDFTronLogo", "png");
+                 ((CustomStamper) newTool).setUri(Uri.fromFile(resource));
+             }
+
+From d4beb4c7b509e553edbd0688c500ded3d605acb1 Mon Sep 17 00:00:00 2001
+From: Andrew Ma <ama@pdftron.com>
+Date: Mon, 22 Aug 2022 16:23:47 -0700
+Subject: [PATCH 3/8] add imageStampPath API
+
+---
+ .../modules/DocumentViewModule.java           | 15 +++++++++++++
+ .../viewmanagers/DocumentViewViewManager.java |  9 ++++++++
+ .../reactnative/views/DocumentView.java       | 22 +++++++++++++------
+ lib/src/DocumentView/DocumentView.js          |  7 ++++++
+ 4 files changed, 46 insertions(+), 7 deletions(-)
+
+diff --git a/android/src/main/java/com/pdftron/reactnative/modules/DocumentViewModule.java b/android/src/main/java/com/pdftron/reactnative/modules/DocumentViewModule.java
+index 7134b5002..29c87ae99 100644
+--- a/android/src/main/java/com/pdftron/reactnative/modules/DocumentViewModule.java
++++ b/android/src/main/java/com/pdftron/reactnative/modules/DocumentViewModule.java
+@@ -184,6 +184,21 @@ public void run() {
+         });
+     }
+ 
++    @ReactMethod
++    public void setImageStampPath(final int tag, final String path, final Promise promise) {
++        getReactApplicationContext().runOnUiQueueThread(new Runnable() {
++            @Override
++            public void run() {
++                try {
++                    mDocumentViewInstance.setImageStampPath(tag, path);
++                    promise.resolve(null);
++                } catch (Exception e) {
++                    promise.reject(e);
++                }
++            }
++        });
++    }
++
+     @ReactMethod
+     public void commitTool(final int tag, final Promise promise) {
+         getReactApplicationContext().runOnUiQueueThread(new Runnable() {
+diff --git a/android/src/main/java/com/pdftron/reactnative/viewmanagers/DocumentViewViewManager.java b/android/src/main/java/com/pdftron/reactnative/viewmanagers/DocumentViewViewManager.java
+index ccf3b73c3..a59a79593 100644
+--- a/android/src/main/java/com/pdftron/reactnative/viewmanagers/DocumentViewViewManager.java
++++ b/android/src/main/java/com/pdftron/reactnative/viewmanagers/DocumentViewViewManager.java
+@@ -624,6 +624,15 @@ public void setToolMode(int tag, String item) throws PDFNetException {
+         }
+     }
+ 
++    public void setImageStampPath(int tag, String path) throws PDFNetException {
++        DocumentView documentView = mDocumentViews.get(tag);
++        if (documentView != null) {
++            documentView.setImageStampPath(path);
++        } else {
++            throw new PDFNetException("", 0L, getName(), "setImageStampPath", "Unable to find DocumentView.");
++        }
++    }
++
+     public boolean commitTool(int tag) throws PDFNetException {
+         DocumentView documentView = mDocumentViews.get(tag);
+         if (documentView != null) {
+diff --git a/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java b/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
+index 8b02316e5..b4ba89167 100644
+--- a/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
++++ b/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
+@@ -186,6 +186,9 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
+     private final SparseArray<String> mToolIdMap = new SparseArray<>();
+     private final AtomicInteger mToolIdGenerator = new AtomicInteger(1000);
+ 
++    // custom image map path
++    Map<String, Uri> mLocalImageMap = new HashMap<>();
++
+     private ArrayList<ViewModePickerDialogFragment.ViewModePickerItems> mViewModePickerItems = new ArrayList<>();
+     private final RNPdfViewCtrlTabHostFragment.RNHostFragmentListener mRNHostFragmentListener =
+             new RNPdfViewCtrlTabHostFragment.RNHostFragmentListener() {
+@@ -2197,7 +2200,7 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
+     @Override
+     public void onNavButtonPressed() {
+         if (getToolManager() != null) {
+-            getToolManager().setTool(getToolManager().createTool(ToolManager.ToolMode.PAN, null));
++//            getToolManager().setTool(getToolManager().createTool(ToolManager.ToolMode.PAN, null));
+         }
+         onReceiveNativeEvent(ON_NAV_BUTTON_PRESSED, ON_NAV_BUTTON_PRESSED);
+     }
+@@ -2772,12 +2775,6 @@ public void toolChanged(ToolManager.Tool newTool, @Nullable ToolManager.Tool old
+             params.putString(ON_TOOL_CHANGED, ON_TOOL_CHANGED);
+             params.putString(KEY_PREVIOUS_TOOL, oldToolString != null ? oldToolString : unknownString);
+             params.putString(KEY_TOOL, newToolString != null ? newToolString : unknownString);
+-
+-            if (newTool.getToolMode() == ToolManager.ToolMode.STAMPER) {
+-                File resource = Utils.copyResourceToLocal(getContext(), R.raw.pdftron, "PDFTronLogo", "png");
+-                ((CustomStamper) newTool).setUri(Uri.fromFile(resource));
+-            }
+-
+             onReceiveNativeEvent(params);
+         }
+     };
+@@ -2952,6 +2949,8 @@ private String generateXfdfCommand(@Nullable ArrayList<Annot> added,
+     public void onTabDocumentLoaded(String tag) {
+         super.onTabDocumentLoaded(tag);
+ 
++        File resource = Utils.copyResourceToLocal(getContext(), R.raw.pdftron, "PDFTronLogo", "png");
++        mLocalImageMap.put("PDFTronLogo", Uri.fromFile(resource));
+         // set react context
+         if (getPdfViewCtrlTabFragment() instanceof RNPdfViewCtrlTabFragment) {
+             RNPdfViewCtrlTabFragment fragment = (RNPdfViewCtrlTabFragment) getPdfViewCtrlTabFragment();
+@@ -3880,6 +3879,15 @@ public void setToolMode(String item) {
+         }
+     }
+ 
++    public void setImageStampPath(String path) {
++        if (getToolManager() != null) {
++            ToolManager.Tool currentTool = getToolManager().getTool();
++            if (currentTool instanceof CustomStamper) {
++                ((CustomStamper) currentTool).setUri(mLocalImageMap.get(path));
++            }
++        }
++    }
++
+     public boolean commitTool() {
+         if (getToolManager() != null) {
+             ToolManager.Tool currentTool = getToolManager().getTool();
+diff --git a/lib/src/DocumentView/DocumentView.js b/lib/src/DocumentView/DocumentView.js
+index 607dc9ed5..c5fbad945 100644
+--- a/lib/src/DocumentView/DocumentView.js
++++ b/lib/src/DocumentView/DocumentView.js
+@@ -462,6 +462,13 @@ export class DocumentView extends PureComponent {
+         }
+         return Promise.resolve();
+     };
++    setImageStampPath = (path) => {
++        const tag = findNodeHandle(this._viewerRef);
++        if (tag != null) {
++            return DocumentViewManager.setImageStampPath(tag, path);
++        }
++        return Promise.resolve();
++    };
+     commitTool = () => {
+         const tag = findNodeHandle(this._viewerRef);
+         if (tag != null) {
+
+From 0a9baf9e7059d1caf93a2282638f8b5837a42f64 Mon Sep 17 00:00:00 2001
+From: Andrew Ma <ama@pdftron.com>
+Date: Mon, 22 Aug 2022 16:31:57 -0700
+Subject: [PATCH 4/8] Some fixes
+
+---
+ .../pdftron/reactnative/views/DocumentView.java  |   9 ++-------
+ android/src/main/res/raw/pdftron.png             | Bin 1381 -> 0 bytes
+ 2 files changed, 2 insertions(+), 7 deletions(-)
+ delete mode 100644 android/src/main/res/raw/pdftron.png
+
+diff --git a/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java b/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
+index b4ba89167..ba3390b47 100644
+--- a/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
++++ b/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
+@@ -186,9 +186,6 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
+     private final SparseArray<String> mToolIdMap = new SparseArray<>();
+     private final AtomicInteger mToolIdGenerator = new AtomicInteger(1000);
+ 
+-    // custom image map path
+-    Map<String, Uri> mLocalImageMap = new HashMap<>();
+-
+     private ArrayList<ViewModePickerDialogFragment.ViewModePickerItems> mViewModePickerItems = new ArrayList<>();
+     private final RNPdfViewCtrlTabHostFragment.RNHostFragmentListener mRNHostFragmentListener =
+             new RNPdfViewCtrlTabHostFragment.RNHostFragmentListener() {
+@@ -2200,7 +2197,7 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
+     @Override
+     public void onNavButtonPressed() {
+         if (getToolManager() != null) {
+-//            getToolManager().setTool(getToolManager().createTool(ToolManager.ToolMode.PAN, null));
++            getToolManager().setTool(getToolManager().createTool(ToolManager.ToolMode.PAN, null));
+         }
+         onReceiveNativeEvent(ON_NAV_BUTTON_PRESSED, ON_NAV_BUTTON_PRESSED);
+     }
+@@ -2949,8 +2946,6 @@ private String generateXfdfCommand(@Nullable ArrayList<Annot> added,
+     public void onTabDocumentLoaded(String tag) {
+         super.onTabDocumentLoaded(tag);
+ 
+-        File resource = Utils.copyResourceToLocal(getContext(), R.raw.pdftron, "PDFTronLogo", "png");
+-        mLocalImageMap.put("PDFTronLogo", Uri.fromFile(resource));
+         // set react context
+         if (getPdfViewCtrlTabFragment() instanceof RNPdfViewCtrlTabFragment) {
+             RNPdfViewCtrlTabFragment fragment = (RNPdfViewCtrlTabFragment) getPdfViewCtrlTabFragment();
+@@ -3883,7 +3878,7 @@ public void setImageStampPath(String path) {
+         if (getToolManager() != null) {
+             ToolManager.Tool currentTool = getToolManager().getTool();
+             if (currentTool instanceof CustomStamper) {
+-                ((CustomStamper) currentTool).setUri(mLocalImageMap.get(path));
++                ((CustomStamper) currentTool).setUri(Uri.parse(path));
+             }
+         }
+     }
+diff --git a/android/src/main/res/raw/pdftron.png b/android/src/main/res/raw/pdftron.png
+deleted file mode 100644
+index a7288dc7cc0fa606cd8ade4ca97491d9e9ad7087..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+HcmV?d00001
+
+literal 1381
+zcmV-r1)BPaP)<h;3K|Lk000e1NJLTq0077U0077c0{{R3nucDi0006CP)t-s0Hx$3
+zvFFwB`qc0G%Ix{R==ieZ_NL$Uj@R>O$?rkC>Km@+DzoVS|Nrdx{Ho#hX36d%vFC8i
+z?-Q%$`27Abwdwx;{-fUYAFt<#)$#|Y<k0T=_WS;6%I}cZ^8uyg1*YV<<@W}s<fq^D
+ziPiG?{Qfew>Dlr63#jFu-1I}d>(=o4bItJa`uz~9<$cldam?@6@cK8n>6Y2^?fCrz
+zrsO%f>VVSm607BG%kOf{@Qc>+rQh}A_58@|`8>Mn{Qdq4sO4G2?eO{iIJoIMx$5=%
+z{Y$^=ncMWB-Sorh_!X??^!xqa^ZT6K^cSt>^ZNZSwdg{;>Po-sd(iPx!R&|B@=d_(
+zM7`@Xx9L8*>L9S^>G%B3?fHMv@vGtXdC%}3ujjGj_7tq<P{Hg!yXs)Z?t;?swdD7|
+z==k09``+{W`u+ao_53Wf=xWOEe9-Y&#O=W7`2GI=M!oCB>i8I~=C0!QT*d7SspXyA
+z^r7AL531$7=l3qP=(ObbI=Sk$<@Y7B=VZw4D6{Cv>-k~F?hdKt==S^qrQ{K-<>vPM
+zZ_Mv8w&^{(>fG}CnA-Hj>iGNp{(jN%+w%Lt>G*}y@?OU638>^PwCE?Y=vu_>^7{R#
+z;PoM}=N7Eytl{=4v*^a^_~7*Wl-ctfuI8fN^(3+9?)m+U*7D-?`v|AxCbH<d=J(QI
+zfcXFb0~Sd{K~#7F?9T-i0s#O-LEIO2&hW#fe>g(m|LruG41<}OnVFfHnVFfHSvL1-
+z`9iT&u2gIF%ttl!HqBPM^U26t<+?paMCz9ZjEFQGjTsTCKbbNj(yRfAC<q}DDT*Nx
+zl@mxr^93ZLWekaEMTsb+MAjQfMB5Y+(T)<)o)S4Ekcf_y$mtA;=t7A!Q%FQtO5{d~
+z=uU||xTyz)-EJTX!>i`1t^F0pzir#LZQHhu+PcWzL9>g=*~xPUZ!$BXwuFR*TN1(u
+zTS6l7e~XI#AH~GR#nY7pc%75@EL})ShWDkUQY{SzNY9|s$1p)Am9k)jY^vnI2)TJw
+z$cGsUsBp)D5z?qq2qT0SQK1-Sc!mlQFhdp<N??ZfsZa_tlu@A^W~iV-r7b&BWy{q{
+zhY`Z_s89_f)KH}sMtF`2?|cRmJaLB#bufYR3{~o3f(9xz!T?QFD}(1Xx6p-5c$(AN
+z_HG8<cnLba)ZWqgZddoyPxbV=65mIc`k~Fh;OFra^8k9hJ`_w*!_c8>gu+JOguJnF
+zitC2BiAieE0clfV)F5LTvV1etVivOI=BdX5L`^(NJr*Hq?n7#_1W6xsQ<G(gdXAdh
+zS%IWg>QVtoYZ=re|2_mc>(nG^36eIbOCTg|Zc&qGwjrsLnmpQpr2ApiWA{CX+M^!+
+z`w->iQ;RL(4jfR6!`C6~h&mh>LYOa%@=i{}AuXNq&e9<7l+s>#<1=V*PFblJo6x~`
+zhmvwGub{^@#pHFx+(4UK{{Ke5JnMS?g>)ZudY|s?esy|VbNA-!zg7E9G9HI-=~8^>
+zckr_BU1nT{!`ptK8$Vvb<D5HGyORRXo2FV{CA_bdY8^1ZPgMFDCisOazs|t~FH@xn
+zc7)X3w<P2@SQ3(ENyzVxB_T7gBxKK)kQZ$U$+aZp9mkRoe^?UIZ%at9Eg_F=3AtxW
+zNW3i}qkmWu!e49&`SY*#=a2vZ0E7V;o&xmubff|HW@|7J5fPCT5fKp)5fKp)5fKp)
+n5fKp)5s}$nR~`TW00007qCtG^KeMgq00000NkvXXu0mjf*pUcZ
+
+
+From e3d34aebe3b734158e6e58f77ae0bb185a620b6b Mon Sep 17 00:00:00 2001
+From: Andrew Ma <ama@pdftron.com>
+Date: Mon, 22 Aug 2022 16:43:31 -0700
+Subject: [PATCH 5/8] Fix path to local file
+
+---
+ .../main/java/com/pdftron/reactnative/views/DocumentView.java   | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java b/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
+index ba3390b47..fbff549ee 100644
+--- a/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
++++ b/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
+@@ -3878,7 +3878,7 @@ public void setImageStampPath(String path) {
+         if (getToolManager() != null) {
+             ToolManager.Tool currentTool = getToolManager().getTool();
+             if (currentTool instanceof CustomStamper) {
+-                ((CustomStamper) currentTool).setUri(Uri.parse(path));
++                ((CustomStamper) currentTool).setUri(Uri.fromFile(new File(path)));
+             }
+         }
+     }
+
+From 3e5911e53086e44377233c5d90afc9ac81a4d682 Mon Sep 17 00:00:00 2001
+From: Andrew Ma <ama@pdftron.com>
+Date: Tue, 23 Aug 2022 08:44:55 -0700
+Subject: [PATCH 6/8] Move to read from sandbox dir
+
+---
+ .../main/java/com/pdftron/reactnative/views/DocumentView.java | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java b/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
+index fbff549ee..17bffeb5e 100644
+--- a/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
++++ b/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
+@@ -2197,7 +2197,7 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
+     @Override
+     public void onNavButtonPressed() {
+         if (getToolManager() != null) {
+-            getToolManager().setTool(getToolManager().createTool(ToolManager.ToolMode.PAN, null));
++//            getToolManager().setTool(getToolManager().createTool(ToolManager.ToolMode.PAN, null));
+         }
+         onReceiveNativeEvent(ON_NAV_BUTTON_PRESSED, ON_NAV_BUTTON_PRESSED);
+     }
+@@ -3878,7 +3878,7 @@ public void setImageStampPath(String path) {
+         if (getToolManager() != null) {
+             ToolManager.Tool currentTool = getToolManager().getTool();
+             if (currentTool instanceof CustomStamper) {
+-                ((CustomStamper) currentTool).setUri(Uri.fromFile(new File(path)));
++                ((CustomStamper) currentTool).setUri(Uri.fromFile(new File(getContext().getFilesDir(), path)));
+             }
+         }
+     }
+
+From 7cf21e720b35056a147fdcc097f05efdc513c659 Mon Sep 17 00:00:00 2001
+From: Andrew Ma <ama@pdftron.com>
+Date: Tue, 23 Aug 2022 08:46:43 -0700
+Subject: [PATCH 7/8] Move to read from sandbox dir
+
+---
+ .../main/java/com/pdftron/reactnative/views/DocumentView.java   | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java b/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
+index 17bffeb5e..f0595a706 100644
+--- a/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
++++ b/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
+@@ -2197,7 +2197,7 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
+     @Override
+     public void onNavButtonPressed() {
+         if (getToolManager() != null) {
+-//            getToolManager().setTool(getToolManager().createTool(ToolManager.ToolMode.PAN, null));
++            getToolManager().setTool(getToolManager().createTool(ToolManager.ToolMode.PAN, null));
+         }
+         onReceiveNativeEvent(ON_NAV_BUTTON_PRESSED, ON_NAV_BUTTON_PRESSED);
+     }
+
+From 62e00b0e8c809f5fe9e3e82590d3778ba710a552 Mon Sep 17 00:00:00 2001
+From: Andrew Ma <ama@pdftron.com>
+Date: Tue, 23 Aug 2022 09:21:41 -0700
+Subject: [PATCH 8/8] Make full path required
+
+---
+ .../main/java/com/pdftron/reactnative/views/DocumentView.java   | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java b/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
+index f0595a706..fbff549ee 100644
+--- a/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
++++ b/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
+@@ -3878,7 +3878,7 @@ public void setImageStampPath(String path) {
+         if (getToolManager() != null) {
+             ToolManager.Tool currentTool = getToolManager().getTool();
+             if (currentTool instanceof CustomStamper) {
+-                ((CustomStamper) currentTool).setUri(Uri.fromFile(new File(getContext().getFilesDir(), path)));
++                ((CustomStamper) currentTool).setUri(Uri.fromFile(new File(path)));
+             }
+         }
+     }
