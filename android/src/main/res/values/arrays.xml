@@ -113,13 +113,13 @@
     <array name="bigham_callout_presets">
         <item>@style/BighamCalloutPresetYellow</item>
         <item>@style/BighamCalloutPresetRed</item>
-        <item>@style/BighamCalloutPresetBlue</item>
+        <item>@style/BighamCalloutPresetGreen</item>
     </array>
 
     <array name="bigham_free_text_presets">
         <item>@style/BighamFreeTextPresetYellow</item>
         <item>@style/BighamFreeTextPresetRed</item>
-        <item>@style/BighamFreeTextPresetBlue</item>
+        <item>@style/BighamFreeTextPresetGreen</item>
     </array>
 
     <array name="bigham_oval_presets">
