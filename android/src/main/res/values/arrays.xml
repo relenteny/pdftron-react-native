@@ -33,27 +33,27 @@
     </array>
 
     <array name="underground_highlight_presets">
+        <item>@style/BauHighlightPresetStyleUnderground</item>
         <item>@style/BauHighlightPresetStyleCoax</item>
         <item>@style/BauHighlightPresetStyleFiber</item>
-        <item>@style/BauHighlightPresetStyleUnderground</item>
     </array>
 
     <array name="underground_line_presets">
+        <item>@style/BauHighlightPresetStyleUnderground</item>
         <item>@style/BauHighlightPresetStyleCoax</item>
         <item>@style/BauHighlightPresetStyleFiber</item>
-        <item>@style/BauHighlightPresetStyleUnderground</item>
     </array>
 
     <array name="underground_polyline_presets">
+        <item>@style/BauHighlightPresetStyleUnderground</item>
         <item>@style/BauHighlightPresetStyleCoax</item>
         <item>@style/BauHighlightPresetStyleFiber</item>
-        <item>@style/BauHighlightPresetStyleUnderground</item>
     </array>
 
     <array name="underground_free_highlighter_presets">
+        <item>@style/BauHighlightPresetStyleUnderground</item>
         <item>@style/BauHighlightPresetStyleCoax</item>
         <item>@style/BauHighlightPresetStyleFiber</item>
-        <item>@style/BauHighlightPresetStyleUnderground</item>
     </array>
 
     <array name="splicing_highlight_presets">
@@ -78,6 +78,12 @@
         <item>@style/BauHighlightPresetStyleSplice</item>
         <item>@style/BauHighlightPresetStyleCoax</item>
         <item>@style/BauHighlightPresetStyleWreckOut</item>
+    </array>
+
+    <array name="bau_oval_presets">
+        <item>@style/BauOvalPresetStyleBlue</item>
+        <item>@style/BauOvalPresetStyleYellow</item>
+        <item>@style/BauOvalPresetStyleRed</item>
     </array>
 
     <array name="connexon_highlight_presets">
@@ -105,11 +111,21 @@
     </array>
 
     <array name="bigham_callout_presets">
-        <item>@style/BighamCalloutPresetStyle1</item>
+        <item>@style/BighamCalloutPresetYellow</item>
+        <item>@style/BighamCalloutPresetRed</item>
+        <item>@style/BighamCalloutPresetBlue</item>
     </array>
 
     <array name="bigham_free_text_presets">
-        <item>@style/BighamFreeTextPresetStyle1</item>
+        <item>@style/BighamFreeTextPresetYellow</item>
+        <item>@style/BighamFreeTextPresetRed</item>
+        <item>@style/BighamFreeTextPresetBlue</item>
+    </array>
+
+    <array name="bigham_oval_presets">
+        <item>@style/BauOvalPresetStyleBlue</item>
+        <item>@style/BauOvalPresetStyleYellow</item>
+        <item>@style/BauOvalPresetStyleRed</item>
     </array>
 
     <string-array name="bau_standard_colors">
@@ -120,6 +136,7 @@
         <item>#a73c08</item>
         <item>#fffd3c</item>
         <item>#9f1af5</item>
+        <iten>#e13035</item>
         <item>#000000</item>
     </string-array>
 

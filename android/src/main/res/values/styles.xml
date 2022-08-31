@@ -11,6 +11,7 @@
         <item name="free_highlighter_presets">@array/aerial_free_highlighter_presets</item>
         <item name="callout_presets">@array/bigham_callout_presets</item>
         <item name="free_text_presets">@array/bigham_free_text_presets</item>
+        <item name="oval_presets">@array/bigham_oval_presets</item>
     </style>
 
     <style name="UndergroundAppTheme" parent="RNAppThemeBase">
@@ -21,6 +22,7 @@
         <item name="free_highlighter_presets">@array/underground_free_highlighter_presets</item>
         <item name="callout_presets">@array/bigham_callout_presets</item>
         <item name="free_text_presets">@array/bigham_free_text_presets</item>
+        <item name="oval_presets">@array/bigham_oval_presets</item>
     </style>
 
     <style name="SplicingAppTheme" parent="RNAppThemeBase">
@@ -31,6 +33,7 @@
         <item name="free_highlighter_presets">@array/splicing_free_highlighter_presets</item>
         <item name="callout_presets">@array/bigham_callout_presets</item>
         <item name="free_text_presets">@array/bigham_free_text_presets</item>
+        <item name="oval_presets">@array/bigham_oval_presets</item>
     </style>
 
     <style name="ConnexonAppTheme" parent="RNAppThemeBase">
@@ -108,6 +111,27 @@
         <item name="annot_thickness">5.0</item>
     </style>
 
+    <style name="BauOvalPresetStyleBlue">
+        <item name="annot_color">#0021fa</item>
+        <item name="annot_opacity">0.65</item>
+        <item name="annot_fill_color">#0021fa</item>
+        <item name="annot_thickness">1</item>
+    </style>
+
+    <style name="BauOvalPresetStyleYellow">
+        <item name="annot_color">#fffd3c</item>
+        <item name="annot_opacity">0.65</item>
+        <item name="annot_fill_color">#fffd3c</item>
+        <item name="annot_thickness">1</item>
+    </style>
+
+    <style name="BauOvalPresetStyleRed">
+        <item name="annot_color">#e13035</item>
+        <item name="annot_opacity">0.65</item>
+        <item name="annot_fill_color">#e13035</item>
+        <item name="annot_thickness">1</item>
+    </style>
+
     <!-- Connexon -->
 
     <style name="ConnexonHighlightPresetStyleFiber">
@@ -128,23 +152,67 @@
         <item name="annot_thickness">5.0</item>
     </style>
 
-    <style name="BighamCalloutPresetStyle1">
+    <style name="BighamCalloutPresetYellow">
         <item name="annot_text_color">#000000</item>
         <item name="annot_font_size">16</item>
         <item name="annot_color">#000000</item>
         <item name="annot_fill_color">#fffd3c</item>
-        <item name="annot_thickness">3</item>
+        <item name="annot_thickness">1</item>
         <item name="annot_font">Roboto</item>
         <item name="annot_text_size_min">4</item>
         <item name="annot_text_size_max">72</item>
     </style>
 
-    <style name="BighamFreeTextPresetStyle1">
+    <style name="BighamCalloutPresetBlue">
+        <item name="annot_text_color">#000000</item>
+        <item name="annot_font_size">16</item>
+        <item name="annot_color">#000000</item>
+        <item name="annot_fill_color">#0021fa</item>
+        <item name="annot_thickness">1</item>
+        <item name="annot_font">Roboto</item>
+        <item name="annot_text_size_min">4</item>
+        <item name="annot_text_size_max">72</item>
+    </style>
+
+    <style name="BighamCalloutPresetRed">
+        <item name="annot_text_color">#000000</item>
+        <item name="annot_font_size">16</item>
+        <item name="annot_color">#000000</item>
+        <item name="annot_fill_color">#e13035</item>
+        <item name="annot_thickness">1</item>
+        <item name="annot_font">Roboto</item>
+        <item name="annot_text_size_min">4</item>
+        <item name="annot_text_size_max">72</item>
+    </style>
+
+    <style name="BighamFreeTextPresetYellow">
         <item name="annot_text_color">#000000</item>
         <item name="annot_font_size">16</item>
         <item name="annot_color">#000000</item>
         <item name="annot_fill_color">#fffd3c</item>
-        <item name="annot_thickness">3</item>
+        <item name="annot_thickness">1</item>
+        <item name="annot_font">Roboto</item>
+        <item name="annot_text_size_min">4</item>
+        <item name="annot_text_size_max">72</item>
+    </style>
+
+    <style name="BighamFreeTextPresetBlue">
+        <item name="annot_text_color">#000000</item>
+        <item name="annot_font_size">16</item>
+        <item name="annot_color">#000000</item>
+        <item name="annot_fill_color">#0021fa</item>
+        <item name="annot_thickness">1</item>
+        <item name="annot_font">Roboto</item>
+        <item name="annot_text_size_min">4</item>
+        <item name="annot_text_size_max">72</item>
+    </style>
+
+    <style name="BighamFreeTextPresetRed">
+        <item name="annot_text_color">#000000</item>
+        <item name="annot_font_size">16</item>
+        <item name="annot_color">#000000</item>
+        <item name="annot_fill_color">#e13035</item>
+        <item name="annot_thickness">1</item>
         <item name="annot_font">Roboto</item>
         <item name="annot_text_size_min">4</item>
         <item name="annot_text_size_max">72</item>
