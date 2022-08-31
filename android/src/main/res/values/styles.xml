@@ -163,11 +163,11 @@
         <item name="annot_text_size_max">72</item>
     </style>
 
-    <style name="BighamCalloutPresetBlue">
+    <style name="BighamCalloutPresetRed">
         <item name="annot_text_color">#000000</item>
         <item name="annot_font_size">16</item>
         <item name="annot_color">#000000</item>
-        <item name="annot_fill_color">#0021fa</item>
+        <item name="annot_fill_color">#e13035</item>
         <item name="annot_thickness">1</item>
         <item name="annot_font">Roboto</item>
         <item name="annot_text_size_min">4</item>
@@ -196,11 +196,11 @@
         <item name="annot_text_size_max">72</item>
     </style>
 
-    <style name="BighamFreeTextPresetBlue">
+    <style name="BighamFreeTextPresetRed">
         <item name="annot_text_color">#000000</item>
         <item name="annot_font_size">16</item>
         <item name="annot_color">#000000</item>
-        <item name="annot_fill_color">#0021fa</item>
+        <item name="annot_fill_color">#e13035</item>
         <item name="annot_thickness">1</item>
         <item name="annot_font">Roboto</item>
         <item name="annot_text_size_min">4</item>
