@@ -113,23 +113,23 @@
 
     <style name="BauOvalPresetStyleBlue">
         <item name="annot_color">#0021fa</item>
-        <item name="annot_opacity">0.0</item>
-        <item name="annot_fill_color">#0021fa</item>
-        <item name="annot_thickness">1</item>
+        <item name="annot_opacity">0.50</item>
+        <item name="annot_fill_color">#ffffff</item>
+        <item name="annot_thickness">2</item>
     </style>
 
     <style name="BauOvalPresetStyleYellow">
         <item name="annot_color">#fffd3c</item>
-        <item name="annot_opacity">0.0</item>
-        <item name="annot_fill_color">#fffd3c</item>
-        <item name="annot_thickness">1</item>
+        <item name="annot_opacity">0.50</item>
+        <item name="annot_fill_color">#ffffff</item>
+        <item name="annot_thickness">2</item>
     </style>
 
     <style name="BauOvalPresetStyleRed">
         <item name="annot_color">#e13035</item>
-        <item name="annot_opacity">0.0</item>
-        <item name="annot_fill_color">#e13035</item>
-        <item name="annot_thickness">1</item>
+        <item name="annot_opacity">0.50</item>
+        <item name="annot_fill_color">#ffffff</item>
+        <item name="annot_thickness">2</item>
     </style>
 
     <!-- Connexon -->
